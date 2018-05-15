@@ -21,8 +21,8 @@ alias 'vim=nvim'
 alias 'nv=nvim .'
 
 #dotfiles
-alias 'dotfiles= cd ~/dotfiles && ls'
-alias 'scripts= cd ~/dotfiles && sh scripts.sh'
+alias 'dotfiles=cd ~/dotfiles && ls'
+alias 'scripts=cd ~/dotfiles && sh scripts.sh'
 
 #git
 alias gl='git log --graph'
