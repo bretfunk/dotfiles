@@ -89,24 +89,14 @@ Plug 'luochen1990/rainbow'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'Yggdroot/indentLine'
- " let g:indentLine_color_term = 200
- " let g:indentLine_char = '¦'
- " let g:indentLine_setColors = 0
-" rainbow parens
 let g:rainbow_active = 1
-"indent guide
-" Plug 'nathanaelkane/vim-indent-guides'
-" let g:indent_guides_start_level = 2
-" let g:indent_guides_enable_on_vim_startup = 1
 "airline
 let g:airline#extensions#ale#enabled = 1
 let g:airline#extensions#tabline#enabled = 1
-"let g:airline_powerline_fonts = 0
 "==================================UTILITY===============================
 Plug 'scrooloose/nerdtree'
 Plug 'jiangmiao/auto-pairs'
 Plug 'scrooloose/nerdcommenter'
-" Plug 'tpope/vim-commentary'
 "case insensitive search that keeps the case of whatever you change
 Plug 'tpope/vim-abolish'
 "fugitive is for git commands
