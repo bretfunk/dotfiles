@@ -11,5 +11,5 @@ ln -s ~/dotfiles/zshrc ~/.zshrc
 ln -s ~/dotfiles/gitignore ~/.gitignore
 
 git add .
-git commit -m "Updated Dotfiles on $(date)"
+git commit -m "Updated on $(date)"
 git push
