@@ -107,7 +107,7 @@ Plug 'tpope/vim-rhubarb'
 "====================================BUILD/TEST=================================
 Plug 'w0rp/ale'
 Plug 'janko-m/vim-test'
-Plug 'sbdchd/neoformat'
+"Plug 'sbdchd/neoformat'
 let g:ale_linters = {
       \ 'elixir': ['mix', 'credo'],
       \ 'haskell': ['stack-ghc-mod', 'hlint'],
@@ -121,13 +121,21 @@ let g:ale_linters = {
       \ }
 let g:ale_linters_explicit = 1
 let g:test#strategy = 'neovim'
-let g:neoformat_only_msg_on_error = 0
-let g:neoformat_typescript_tsprettier = {
-      \ 'exe': 'prettier',
-      \ 'args': ['--stdin', '--parser', 'typescript', '--single-quote', 'true'],
-      \ 'stdin': 1
+let g:ale_fixers = {
+      \ 'javascript': ['prettier'],
+      \ 'javascript.jsx': ['prettier'],
+      \ 'typescript': ['prettier'],
+      \ 'typescript.tsx': ['prettier'],
+      \ 'elixir': ['mix_format']
       \ }
-let g:neoformat_enabled_typescript = ['tsprettier']
+let g:ale_fix_on_save=1
+"let g:neoformat_only_msg_on_error = 0
+"let g:neoformat_typescript_tsprettier = {
+      "\ 'exe': 'prettier',
+      "\ 'args': ['--stdin', '--parser', 'typescript', '--single-quote', 'true'],
+      "\ 'stdin': 1
+      "\ }
+"let g:neoformat_enabled_typescript = ['tsprettier']
 "==================================NAVIGATION===================================
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
