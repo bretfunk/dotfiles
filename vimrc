@@ -184,17 +184,17 @@ Plug 'mxw/vim-jsx'
 let g:jsx_ext_required = 0  "Always use jsx syntax
 autocmd FileType javascript setlocal formatprg=prettier\ --stdin\ --parser\ flow\ --single-quote
 " Use formatprg when available
-let g:neoformat_try_formatprg = 1
-au! BufWritePre *.js Neoformat silent! prettier
-au! BufWritePre *.jsx Neoformat silent! prettier
+"let g:neoformat_try_formatprg = 1
+"au! BufWritePre *.js Neoformat silent! prettier
+"au! BufWritePre *.jsx Neoformat silent! prettier
 "==================================TYPESCRIPT===================================
 Plug 'leafgarland/typescript-vim', { 'for': [ 'typescript', 'typescript.tsx' ] }
 Plug 'HerringtonDarkholme/yats.vim', {'for': ['typescript', 'typescript.tsx']}
 Plug 'ianks/vim-tsx', {'for': ['typescript', 'typescript.tsx']}
 autocmd FileType typescript setlocal formatprg=prettier\ --stdin\ --parser\ typescript\ --single-quote
 autocmd FileType typescript.tsx setlocal formatprg=prettier\ --stdin\ --parser\ typescript\ --single-quote
-au! BufWritePre *.ts Neoformat
-au! BufWritePre *.tsx Neoformat
+"au! BufWritePre *.ts Neoformat
+"au! BufWritePre *.tsx Neoformat
 "=====================================RUBY======================================
 Plug 'thoughtbot/vim-rspec'
 Plug 'tpope/vim-endwise' "adds end and other endings to methods in Ruby
