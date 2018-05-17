@@ -16,6 +16,9 @@ alias 'vimrc=nvim ~/dotfiles/vimrc'
 alias 'zshrc=nvim ~/dotfiles/zshrc'
 alias 'init.vim=nvim ~/.config/nvim/init.vim'
 
+#yarn
+alias 'ys=yarn start'
+
 #vim
 alias 'vim=nvim'
 alias 'nv=nvim .'
