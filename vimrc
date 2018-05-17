@@ -200,6 +200,15 @@ Plug 'thoughtbot/vim-rspec'
 Plug 'tpope/vim-endwise' "adds end and other endings to methods in Ruby
 Plug 'tpope/vim-bundler' "rails bundler
 Plug 'tpope/vim-rails'
+"==================================ELIXIR=======================================
+Plug 'elixir-lang/vim-elixir'
+Plug 'slashmili/alchemist.vim'
+augroup elixir
+  au!
+  au FileType elixir nn <buffer> <localleader>i :IEx<CR>
+  au FileType elixir nn <buffer> <localleader>t :Mix test<CR>
+  au FileType elixir nn <buffer> <localleader>x :Mix<Space>
+augroup END
 "====================================ETC========================================
 "nerdtree
 let NERDTreeMapActivateNode='<right>'
