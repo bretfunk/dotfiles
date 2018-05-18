@@ -11,6 +11,7 @@ alias 'cdn=cd ~/../../Volumes/code/navitas && ls'
 alias 'cdb=cd ~/../../Volumes/code/navitas/broker-portal-frontend && ls'
 alias 'cdl=cd ~/../../Volumes/code/navitas/lapis && ls'
 alias 'cdf=cd ~/../../Volumes/code/fun && ls'
+alias 'cdt=cd ~/../../Volumes/code/tutorials && ls'
 alias 'cdm=cd ~/../../Volumes/code/musicoin && ls'
 alias 'vimrc=nvim ~/dotfiles/vimrc'
 alias 'zshrc=nvim ~/dotfiles/zshrc'
@@ -20,7 +21,8 @@ alias 'init.vim=nvim ~/.config/nvim/init.vim'
 alias 'ys=yarn start'
 
 #vim
-alias 'vim=nvim'
+#need to ween myself off of typing vim and using nv instead
+alias 'vim=$'
 alias 'nv=nvim .'
 
 #dotfiles
