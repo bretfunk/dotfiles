@@ -7,10 +7,12 @@ export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 #navigation
+alias 'cdc=cd ~/../../Volumes/code && ls'
 alias 'cdn=cd ~/../../Volumes/code/navitas && ls'
 alias 'cdb=cd ~/../../Volumes/code/navitas/broker-portal-frontend && ls'
 alias 'cdl=cd ~/../../Volumes/code/navitas/lapis && ls'
 alias 'cdf=cd ~/../../Volumes/code/fun && ls'
+alias 'cdp=cd ~/../../Volumes/code/projects && ls'
 alias 'cdt=cd ~/../../Volumes/code/tutorials && ls'
 alias 'cdm=cd ~/../../Volumes/code/musicoin && ls'
 alias 'vimrc=nvim ~/dotfiles/vimrc'
@@ -60,3 +62,6 @@ alias ls='ls -F -G'
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+#thefuck CLI helper
+eval $(thefuck --alias fuck)
