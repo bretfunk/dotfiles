@@ -21,6 +21,7 @@ alias 'init.vim=nvim ~/.config/nvim/init.vim'
 
 #yarn
 alias 'ys=yarn start'
+alias 'yul=yarn upgrade lapis && yarn start'
 
 #vim
 #need to ween myself off of typing vim and using nv instead
@@ -49,7 +50,6 @@ alias yb='yarn build'
 alias ga='git add dist && git add -p'
 alias gca='git commit --amend --no-edit'
 alias gpf='git push --force'
-alias yul='yarn upgrade lapis'
 
 #alias gcl='git clone'
 #alias gta='git tag -a -m'

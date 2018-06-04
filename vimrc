@@ -107,17 +107,14 @@ Plug 'tpope/vim-rhubarb'
 "====================================BUILD/TEST=================================
 Plug 'w0rp/ale'
 Plug 'janko-m/vim-test'
-"Plug 'sbdchd/neoformat'
 let g:ale_linters = {
-      \ 'elixir': ['mix', 'credo'],
+      \ 'elixir': ['mix', 'credo', 'dialyxir'],
       \ 'haskell': ['stack-ghc-mod', 'hlint'],
       \ 'elm': ['elm-make'],
       \ 'javascript': ['flow', 'prettier'],
       \ 'javascript.jsx': ['flow', 'prettier'],
       \ 'typescript': ['tsserver', 'tslint'],
-      \ 'typescript.tsx': ['tsserver', 'tslint'],
-      \ 'reason': ['merlin'],
-      \ 'ocaml': ['merlin']
+      \ 'typescript.tsx': ['tsserver', 'tslint']
       \ }
 let g:ale_linters_explicit = 1
 let g:test#strategy = 'neovim'
@@ -129,13 +126,6 @@ let g:ale_fixers = {
       \ 'elixir': ['mix_format']
       \ }
 let g:ale_fix_on_save=1
-"let g:neoformat_only_msg_on_error = 0
-"let g:neoformat_typescript_tsprettier = {
-      "\ 'exe': 'prettier',
-      "\ 'args': ['--stdin', '--parser', 'typescript', '--single-quote', 'true'],
-      "\ 'stdin': 1
-      "\ }
-"let g:neoformat_enabled_typescript = ['tsprettier']
 "==================================NAVIGATION===================================
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
@@ -209,6 +199,8 @@ augroup elixir
   au FileType elixir nn <buffer> <localleader>t :Mix test<CR>
   au FileType elixir nn <buffer> <localleader>x :Mix<Space>
 augroup END
+autocmd BufWritePost *.exs silent :!mix format %
+autocmd BufWritePost *.ex silent :!mix format %
 "====================================ETC========================================
 "nerdtree
 let NERDTreeMapActivateNode='<right>'
@@ -329,6 +321,8 @@ augroup ENDn <leader>of :FZF<CR>
   nnoremap <esc>^[ <esc>^[
   "jj is the same as pressing the esc key
   inoremap jj <ESC>
+  "colemak
+  inoremap nn <ESC>
   "elimitates highlighting with esc, it takes a second
   nnoremap <silent> <Esc> :nohlsearch<Bar>:echo<CR>
   "nerdtree
