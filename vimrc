@@ -319,10 +319,6 @@ augroup ENDn <leader>of :FZF<CR>
   " needed so that vim still understands escape sequences
   " otherwise scrolling creates letters
   nnoremap <esc>^[ <esc>^[
-  "jj is the same as pressing the esc key
-  inoremap jj <ESC>
-  "colemak
-  inoremap nn <ESC>
   "elimitates highlighting with esc, it takes a second
   nnoremap <silent> <Esc> :nohlsearch<Bar>:echo<CR>
   "nerdtree

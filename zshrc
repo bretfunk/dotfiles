@@ -65,3 +65,5 @@ source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 #thefuck CLI helper
 eval $(thefuck --alias fuck)
+
+export PATH="/usr/local/opt/node@8/bin:$PATH"
