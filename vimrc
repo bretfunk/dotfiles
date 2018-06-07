@@ -22,7 +22,7 @@ set hidden                         "allow jumping back and forth between multipl
 set noshowmode                     "because airline...
 set visualbell                     "no sounds!
 set ignorecase                     "ignore case when searching
-set smartcase                      "don't ignore when i specify
+set smartcase                      "don't ignore when I specify
 set wildignorecase                 "case insensitive file search
 set inccommand=nosplit             "show replaces while typing
 set backup                         "backups
