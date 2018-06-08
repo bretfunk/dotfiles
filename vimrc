@@ -142,6 +142,7 @@ let g:deoplete#enable_at_startup = 1
 let g:deoplete#file#enable_buffer_path = 1
 let g:deoplete#enable_smart_case = 1
 let g:LanguageClient_autoStart = 1
+let g:LanguageClient_rootMarkers = {'elixir': ['mix.exs']}
 let g:LanguageClient_serverCommands = {
       \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
       \ 'javascript': flowreadable ? ['flow-language-server', '--stdio', '--try-flow-bin'] : ['javascript-typescript-stdio'],
@@ -150,7 +151,8 @@ let g:LanguageClient_serverCommands = {
       \ 'typescript.tsx': ['typescript-language-server', '--stdio'],
       \ 'python': ['pyls'],
       \ 'reason': ['ocaml-language-server', '--stdio'],
-      \ 'ocaml': ['ocaml-language-server', '--stdio']
+      \ 'ocaml': ['ocaml-language-server', '--stdio'],
+      \ 'elixir': ['elixir-ls']
       \ }
 let g:neosnippet#snippets_directory = "~/dotfiles/snippets"
 let g:neosnippet#scope_aliases = {}
