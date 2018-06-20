@@ -20,7 +20,7 @@ alias 'zshrc=nvim ~/dotfiles/zshrc'
 alias 'init.vim=nvim ~/.config/nvim/init.vim'
 
 #yarn
-alias 'ys=yarn start'
+alias 'ys=yarn start && git add dist && git add -p'
 alias 'yul=yarn upgrade lapis && yarn start'
 
 #vim
