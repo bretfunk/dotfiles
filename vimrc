@@ -97,6 +97,7 @@ let g:airline#extensions#tabline#enabled = 1
 Plug 'scrooloose/nerdtree'
 Plug 'jiangmiao/auto-pairs'
 Plug 'scrooloose/nerdcommenter'
+let NERDSpaceDelims=1
 "case insensitive search that keeps the case of whatever you change
 Plug 'tpope/vim-abolish'
 "fugitive is for git commands
