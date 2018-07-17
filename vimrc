@@ -12,7 +12,7 @@ set list                           "show tab characters
 set timeoutlen=1000 ttimeoutlen=-1 "better timeouts
 set number                         "line numbers
 set relativenumber                 "line numbers
-set mouse=a                        "use the mouse
+set mouse=                        "dont use the mouse
 set cindent                        "auto indent
 set foldmethod=syntax              "code folding
 set textwidth=80                   "format at 80 lines
@@ -321,7 +321,7 @@ augroup ENDn <leader>of :FZF<CR>
   nn <leader>ra :%S/
   " needed so that vim still understands escape sequences
   " otherwise scrolling creates letters
-  nnoremap <esc>^[ <esc>^[
+  " nnoremap <esc>^[ <esc>^[
   "elimitates highlighting with esc, it takes a second
   nnoremap <silent> <Esc> :nohlsearch<Bar>:echo<CR>
   "nerdtree
