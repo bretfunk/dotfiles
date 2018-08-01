@@ -124,7 +124,8 @@ let g:ale_fixers = {
       \ 'javascript.jsx': ['prettier'],
       \ 'typescript': ['prettier'],
       \ 'typescript.tsx': ['prettier'],
-      \ 'elixir': ['mix_format']
+      \ 'elixir': ['mix_format'],
+      \ 'elm': ['elm-format']
       \ }
 let g:ale_fix_on_save=1
 "==================================NAVIGATION===================================
@@ -204,6 +205,18 @@ augroup elixir
 augroup END
 autocmd BufWritePost *.exs silent :!mix format %
 autocmd BufWritePost *.ex silent :!mix format %
+"===================================ELM=========================================
+Plug 'ElmCast/elm-vim'
+Plug 'pbogut/deoplete-elm'
+let g:elm_setup_keybindings = 0
+let g:elm_format_autosave=1
+augroup elm
+  au!
+  au FileType elm setlocal tabstop=4 shiftwidth=4 softtabstop=4 foldmethod=indent
+  au FileType elm nn <buffer> K :ElmShowDocs<CR>
+  au FileType elm nn <buffer> <localleader>m :ElmMakeMain<CR>
+  au FileType elm nn <buffer> <localleader>r :ElmRepl<CR>
+augroup END
 "====================================ETC========================================
 "nerdtree
 let NERDTreeMapActivateNode='<right>'
