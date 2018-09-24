@@ -63,3 +63,4 @@ source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 eval $(thefuck --alias fuck)
 
 export PATH="/usr/local/opt/node@8/bin:$PATH"
+eval "$(rbenv init -)"

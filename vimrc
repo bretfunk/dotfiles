@@ -226,6 +226,8 @@ let NERDTreeIgnore=['\.DS_Store', '\~$', '\.swp']
 "relative numbers in nerdtree
 :let g:NERDTreeShowLineNumbers=1
 :autocmd BufEnter NERD_* setlocal rnu
+" open nerdtree in current dir
+autocmd BufEnter * lcd %:p:h
 "====================================PLUG END========================================
 call plug#end()
 set background=dark
