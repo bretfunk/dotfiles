@@ -237,6 +237,7 @@ let NERDTreeIgnore=['\.DS_Store', '\~$', '\.swp']
 "====================================PLUG END========================================
 call plug#end()
 set background=dark
+" colorscheme archery
 colorscheme space-vim-dark
 " colorscheme onedark
 " colorscheme onehalfdark
