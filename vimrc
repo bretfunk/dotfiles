@@ -147,14 +147,10 @@ let g:LanguageClient_autoStart = 1
 let g:LanguageClient_rootMarkers = {'elixir': ['mix.exs']}
 let g:LanguageClient_serverCommands = {
       \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
-      \ 'javascript': flowreadable ? ['flow-language-server', '--stdio', '--try-flow-bin'] : ['javascript-typescript-stdio'],
-      \ 'javascript.jsx': flowreadable ? ['flow-language-server', '--stdio', '--try-flow-bin'] : ['javascript-typescript-stdio'],
-      \ 'typescript': ['typescript-language-server', '--stdio'],
-      \ 'typescript.tsx': ['typescript-language-server', '--stdio'],
       \ 'python': ['pyls'],
       \ 'reason': ['ocaml-language-server', '--stdio'],
       \ 'ocaml': ['ocaml-language-server', '--stdio'],
-      \ 'elixir': ['elixir-ls']
+      \ 'elixir': ['elixir-ls'],
       \ }
 let g:neosnippet#snippets_directory = "~/dotfiles/snippets"
 let g:neosnippet#scope_aliases = {}
@@ -182,13 +178,25 @@ autocmd FileType javascript setlocal formatprg=prettier\ --stdin\ --parser\ flow
 "au! BufWritePre *.js Neoformat silent! prettier
 "au! BufWritePre *.jsx Neoformat silent! prettier
 "==================================TYPESCRIPT===================================
-Plug 'leafgarland/typescript-vim', { 'for': [ 'typescript', 'typescript.tsx' ] }
+" new Colby ts plugin
 Plug 'HerringtonDarkholme/yats.vim', {'for': ['typescript', 'typescript.tsx']}
 Plug 'ianks/vim-tsx', {'for': ['typescript', 'typescript.tsx']}
-autocmd FileType typescript setlocal formatprg=prettier\ --stdin\ --parser\ typescript\ --single-quote
-autocmd FileType typescript.tsx setlocal formatprg=prettier\ --stdin\ --parser\ typescript\ --single-quote
-"au! BufWritePre *.ts Neoformat
-"au! BufWritePre *.tsx Neoformat
+Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
+let g:nvim_typescript#javascript_support = 1
+augroup typescript
+  au FileType javacript,javascript.jsx,typescript,typescript.tsx nn <buffer> K :TSType<CR>
+  au FileType javacript,javascript.jsx,typescript,typescript.tsx nn <buffer> gd :TSDef<CR>
+  au FileType javacript,javascript.jsx,typescript,typescript.tsx nn <buffer> <localleader>d :TSDoc<CR>
+  au FileType javacript,javascript.jsx,typescript,typescript.tsx nn <buffer> <localleader>r :TSRename<CR>
+  au FileType javacript,javascript.jsx,typescript,typescript.tsx nn <buffer> <localleader>u :TSGetDocSymbols<CR>
+augroup END
+" Plug 'leafgarland/typescript-vim', { 'for': [ 'typescript', 'typescript.tsx' ] }
+" Plug 'HerringtonDarkholme/yats.vim', {'for': ['typescript', 'typescript.tsx']}
+" Plug 'ianks/vim-tsx', {'for': ['typescript', 'typescript.tsx']}
+" autocmd FileType typescript setlocal formatprg=prettier\ --stdin\ --parser\ typescript\ --single-quote
+" autocmd FileType typescript.tsx setlocal formatprg=prettier\ --stdin\ --parser\ typescript\ --single-quote
+" "au! BufWritePre *.ts Neoformat
+" "au! BufWritePre *.tsx Neoformat
 "=====================================RUBY======================================
 Plug 'thoughtbot/vim-rspec'
 Plug 'tpope/vim-endwise' "adds end and other endings to methods in Ruby
@@ -226,8 +234,6 @@ let NERDTreeIgnore=['\.DS_Store', '\~$', '\.swp']
 "relative numbers in nerdtree
 :let g:NERDTreeShowLineNumbers=1
 :autocmd BufEnter NERD_* setlocal rnu
-" open nerdtree in current dir
-autocmd BufEnter * lcd %:p:h
 "====================================PLUG END========================================
 call plug#end()
 set background=dark
