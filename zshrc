@@ -38,6 +38,7 @@ alias gd='git diff'
 alias gm='git commit -m'
 alias gb='git branch'
 alias gcm='git checkout master'
+alias last='git log -1 HEAD'
 
 alias gf='git fetch --all --prune'
 alias gpr='git pull --rebase source master'
@@ -48,7 +49,7 @@ alias reset='git reset --hard'
 
 alias yb='yarn build && git add dist && git add -p'
 alias ga='git add dist && git add -p'
-alias gca='git commit --amend --no-edit'
+# alias gca='git commit --amend --no-edit'
 alias gpf='git push --force'
 
 #ls with color
