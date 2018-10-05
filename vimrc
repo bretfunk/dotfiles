@@ -242,6 +242,7 @@ colorscheme space-vim-dark
 " colorscheme onedark
 " colorscheme onehalfdark
 " colorscheme Tomorrow-Night
+hi Comment guifg=#5C6370 ctermfg=59
 let g:airline_theme='simple'
 filetype plugin indent on
 syntax enable
