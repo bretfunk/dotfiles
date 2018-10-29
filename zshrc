@@ -24,7 +24,6 @@ alias 'yul=yarn upgrade lapis && yarn start'
 
 #vim
 #need to ween myself off of typing vim and using nv instead
-alias 'vim=$'
 alias 'nv=nvim .'
 
 #dotfiles
