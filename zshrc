@@ -39,9 +39,12 @@ alias gb='git branch'
 alias master='git checkout master'
 alias last='git log -1 HEAD'
 
-alias gf='git fetch --all --prune'
-alias gpr='git pull --rebase source master'
-alias update='git fetch --all --prune && git pull --rebase source master'
+# alias gf='git fetch --all --prune'
+# alias gpr='git pull --rebase source master'
+# git rebase source/<source-branch>
+alias update='git fetch --all --prune && git rebase source/master'
+# alias squash='git rebase -i HEAD~5'
+alias amend='git commit --amend --no-edit'
 
 alias clean='git clean -f'
 alias reset='git reset --hard'
@@ -50,6 +53,9 @@ alias yb='yarn build && git add dist && git add -p'
 alias ga='git add dist && git add -p'
 # alias gca='git commit --amend --no-edit'
 alias gpf='git push --force'
+
+#tmate
+alias tsession='tmate display -p '#{tmate_ssh}''
 
 #ls with color
 alias ls='ls -F -G'
@@ -62,5 +68,9 @@ source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 #thefuck CLI helper
 eval $(thefuck --alias fuck)
 
+# node
 export PATH="/usr/local/opt/node@8/bin:$PATH"
+export PATH="/usr/local/opt/python3/bin:$PATH"
 eval "$(rbenv init -)"
+# elixir
+# export PATH="$PATH:/path/to/elixir/bin"

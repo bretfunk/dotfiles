@@ -72,8 +72,6 @@ func! OpenOrCreateTerminal()
   endif
 endfunc
 
-let flowreadable = filereadable('./.flowconfig')
-
 " override $VISUAL to use nvr inside neovim
 if executable('nvr')
   let $VISUAL="nvr -cc split --remote-wait +'set bufhidden=wipe'"
@@ -147,10 +145,6 @@ let g:LanguageClient_autoStart = 1
 let g:LanguageClient_rootMarkers = {'elixir': ['mix.exs']}
 let g:LanguageClient_serverCommands = {
       \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
-      \ 'javascript': flowreadable ? ['flow-language-server', '--stdio', '--try-flow-bin'] : ['javascript-typescript-stdio'],
-      \ 'javascript.jsx': flowreadable ? ['flow-language-server', '--stdio', '--try-flow-bin'] : ['javascript-typescript-stdio'],
-      \ 'typescript': ['typescript-language-server', '--stdio'],
-      \ 'typescript.tsx': ['typescript-language-server', '--stdio'],
       \ 'python': ['pyls'],
       \ 'reason': ['ocaml-language-server', '--stdio'],
       \ 'ocaml': ['ocaml-language-server', '--stdio'],
@@ -185,26 +179,34 @@ autocmd FileType javascript setlocal formatprg=prettier\ --stdin\ --parser\ flow
 Plug 'leafgarland/typescript-vim', { 'for': [ 'typescript', 'typescript.tsx' ] }
 Plug 'HerringtonDarkholme/yats.vim', {'for': ['typescript', 'typescript.tsx']}
 Plug 'ianks/vim-tsx', {'for': ['typescript', 'typescript.tsx']}
+Plug 'mhartington/nvim-typescript', {'do': './install.sh' }
+let g:nvim_typescript#javascript_support = 1
+let g:nvim_typescript#diagnostics_enable = 0
 autocmd FileType typescript setlocal formatprg=prettier\ --stdin\ --parser\ typescript\ --single-quote
 autocmd FileType typescript.tsx setlocal formatprg=prettier\ --stdin\ --parser\ typescript\ --single-quote
 "au! BufWritePre *.ts Neoformat
 "au! BufWritePre *.tsx Neoformat
+augroup typescript
+  au FileType javacript,javascript.jsx,typescript,typescript.tsx nn <buffer> K :TSType<CR>
+  au FileType javacript,javascript.jsx,typescript,typescript.tsx nn <buffer> gd :TSDef<CR>
+  au FileType javacript,javascript.jsx,typescript,typescript.tsx nn <buffer> <localleader>d :TSDoc<CR>
+  au FileType javacript,javascript.jsx,typescript,typescript.tsx nn <buffer> <localleader>r :TSRename<CR>
+  au FileType javacript,javascript.jsx,typescript,typescript.tsx nn <buffer> <localleader>u :TSGetDocSymbols<CR>
+augroup END
 "=====================================RUBY======================================
 Plug 'thoughtbot/vim-rspec'
 Plug 'tpope/vim-endwise' "adds end and other endings to methods in Ruby
 Plug 'tpope/vim-bundler' "rails bundler
 Plug 'tpope/vim-rails'
 "==================================ELIXIR=======================================
-Plug 'elixir-lang/vim-elixir'
-Plug 'slashmili/alchemist.vim'
+Plug 'elixir-lang/vim-elixir', {'for': ['elixir']}
+Plug 'slashmili/alchemist.vim', {'for': ['elixir']}
 augroup elixir
   au!
   au FileType elixir nn <buffer> <localleader>i :IEx<CR>
   au FileType elixir nn <buffer> <localleader>t :Mix test<CR>
   au FileType elixir nn <buffer> <localleader>x :Mix<Space>
 augroup END
-autocmd BufWritePost *.exs silent :!mix format %
-autocmd BufWritePost *.ex silent :!mix format %
 "===================================ELM=========================================
 Plug 'ElmCast/elm-vim'
 Plug 'pbogut/deoplete-elm'
@@ -246,13 +248,13 @@ endif
 "===================================AUGROUPS===================================
 augroup lsp
   au!
-  au FileType python,javascript,javascript.jsx,reason,ocaml,typescript,typescript.tsx setlocal omnifunc=LanguageClient#complete
-  au FileType python,javascript,javascript.jsx,reason,ocaml,typescript,typescript.tsx nn <buffer> K :call LanguageClient_textDocument_hover()<cr>
-  au FileType python,javascript,javascript.jsx,reason,ocaml,typescript,typescript.tsx nn <buffer> gd :call LanguageClient_textDocument_definition()<cr>
-  au FileType python,javascript,javascript.jsx,reason,ocaml,typescript,typescript.tsx nn <buffer> <localleader>f :call LanguageClient_textDocument_formatting()<cr>
-  au FileType python,javascript,javascript.jsx,reason,ocaml,typescript,typescript.tsx nn <buffer> <localleader>r :call LanguageClient_textDocument_rename()<cr>
-  au FileType python,javascript,javascript.jsx,reason,ocaml,typescript,typescript.tsx nn <buffer> <localleader>u :call LanguageClient_textDocument_documentSymbol()<cr>
-augroup ENDn <leader>of :FZF<CR>
+  au FileType python,reason,ocaml setlocal omnifunc=LanguageClient#complete
+  au FileType python,reason,ocaml nn <buffer> K :call LanguageClient_textDocument_hover()<cr>
+  au FileType python,reason,ocaml nn <buffer> gd :call LanguageClient_textDocument_definition()<cr>
+  au FileType python,reason,ocaml nn <buffer> <localleader>f :call LanguageClient_textDocument_formatting()<cr>
+  au FileType python,reason,ocaml nn <buffer> <localleader>r :call LanguageClient_textDocument_rename()<cr>
+  au FileType python,reason,ocaml nn <buffer> <localleader>u :call LanguageClient_textDocument_documentSymbol()<cr>
+augroup END
 "===================================GIT/GITHUB===================================
   nnoremap <leader>ga :Git add -p<CR>i
   nnoremap <leader>gs :Gstatus<CR>
