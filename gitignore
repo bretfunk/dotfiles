@@ -106,3 +106,8 @@ bower.json
 # Custom #
 ############
 .ignore
+
+
+# VS CODE #
+###########
+.vscode

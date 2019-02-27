@@ -24,7 +24,7 @@ set visualbell                     "no sounds!
 set ignorecase                     "ignore case when searching
 set smartcase                      "don't ignore when I specify
 set wildignorecase                 "case insensitive file search
-set inccommand=nosplit             "show replaces while typing
+" set inccommand=nosplit             "show replaces while typing
 set backup                         "backups
 set noswapfile
 set backupdir=~/.config/nvim/backup
@@ -33,9 +33,6 @@ set updatetime=2000                "a bit faster updatetime
 set shortmess+=c                   "make that mess shorter?
 :let mapleader = ' '               "leader is space
 :let maplocalleader = ','          "localleader is comma
-"au! QuickFixCmdPost [^l]* cwindow  "open quickfix after search
-"au! QuickFixCmdPost l* lwindow     "open quickfix after search
-"au! InsertLeave * pc               "close preview on insert leave
 set incsearch                      " Find the next match as we type the search
 set hlsearch                       " Highlight searches by default
 set autoread                        "auto loads changed file, like when changing branches
@@ -94,7 +91,8 @@ let g:airline#extensions#tabline#enabled = 1
 "==================================UTILITY===============================
 Plug 'scrooloose/nerdtree'
 Plug 'jiangmiao/auto-pairs'
-Plug 'scrooloose/nerdcommenter'
+" Plug 'scrooloose/nerdcommenter'
+Plug 'tpope/vim-commentary'
 let NERDSpaceDelims=1
 "case insensitive search that keeps the case of whatever you change
 Plug 'tpope/vim-abolish'
@@ -107,7 +105,7 @@ Plug 'tpope/vim-rhubarb'
 Plug 'w0rp/ale'
 Plug 'janko-m/vim-test'
 let g:ale_linters = {
-      \ 'elixir': ['mix', 'credo', 'dialyxir'],
+      \ 'elixir': ['credo', 'dialyxir'],
       \ 'haskell': ['stack-ghc-mod', 'hlint'],
       \ 'elm': ['elm-make'],
       \ 'javascript': ['flow', 'prettier'],
@@ -122,7 +120,7 @@ let g:ale_fixers = {
       \ 'javascript.jsx': ['prettier'],
       \ 'typescript': ['prettier'],
       \ 'typescript.tsx': ['prettier'],
-      \ 'elixir': ['mix_format'],
+      \ 'elixir': ['mix_format', 'trim_whitespace'],
       \ 'elm': ['elm-format']
       \ }
 let g:ale_fix_on_save=1
@@ -133,23 +131,22 @@ Plug 'ggreer/the_silver_searcher'
 "==================================AUTOCOMPLETION===============================
 Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'}
 Plug 'Shougo/vimproc.vim', {'do': 'make'}
-Plug 'autozimu/LanguageClient-neovim', { 'do': ':UpdateRemotePlugins' }
+" Plug 'autozimu/LanguageClient-neovim', { 'do': ':UpdateRemotePlugins' }
 Plug 'Shougo/echodoc.vim'
 Plug 'shougo/neosnippet.vim'
 Plug 'shougo/neosnippet-snippets'
 Plug 'ervandew/supertab'
 let g:deoplete#enable_at_startup = 1
-let g:deoplete#file#enable_buffer_path = 1
-let g:deoplete#enable_smart_case = 1
-let g:LanguageClient_autoStart = 1
-let g:LanguageClient_rootMarkers = {'elixir': ['mix.exs']}
-let g:LanguageClient_serverCommands = {
-      \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
-      \ 'python': ['pyls'],
-      \ 'reason': ['ocaml-language-server', '--stdio'],
-      \ 'ocaml': ['ocaml-language-server', '--stdio'],
-      \ 'elixir': ['elixir-ls']
-      \ }
+" let g:deoplete#file#enable_buffer_path = 1
+" let g:deoplete#enable_smart_case = 1
+" let g:LanguageClient_autoStart = 1
+" let g:LanguageClient_rootMarkers = {'elixir': ['mix.exs']}
+" let g:LanguageClient_serverCommands = {
+"       \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
+"       \ 'python': ['pyls'],
+"       \ 'reason': ['ocaml-language-server', '--stdio'],
+"       \ 'ocaml': ['ocaml-language-server', '--stdio'],
+"       \ }
 let g:neosnippet#snippets_directory = "~/dotfiles/snippets"
 let g:neosnippet#scope_aliases = {}
 let g:deoplete#keyword_patterns = {}
@@ -179,7 +176,7 @@ autocmd FileType javascript setlocal formatprg=prettier\ --stdin\ --parser\ flow
 Plug 'leafgarland/typescript-vim', { 'for': [ 'typescript', 'typescript.tsx' ] }
 Plug 'HerringtonDarkholme/yats.vim', {'for': ['typescript', 'typescript.tsx']}
 Plug 'ianks/vim-tsx', {'for': ['typescript', 'typescript.tsx']}
-Plug 'mhartington/nvim-typescript', {'do': './install.sh' }
+Plug 'mhartington/nvim-typescript', {'do': ':!install.sh \| UpdateRemotePlugins'}
 let g:nvim_typescript#javascript_support = 1
 let g:nvim_typescript#diagnostics_enable = 0
 autocmd FileType typescript setlocal formatprg=prettier\ --stdin\ --parser\ typescript\ --single-quote
@@ -246,15 +243,15 @@ if executable('ag')
   set grepformat=%f:%l:%c:%m,%f:%l:%m
 endif
 "===================================AUGROUPS===================================
-augroup lsp
-  au!
-  au FileType python,reason,ocaml setlocal omnifunc=LanguageClient#complete
-  au FileType python,reason,ocaml nn <buffer> K :call LanguageClient_textDocument_hover()<cr>
-  au FileType python,reason,ocaml nn <buffer> gd :call LanguageClient_textDocument_definition()<cr>
-  au FileType python,reason,ocaml nn <buffer> <localleader>f :call LanguageClient_textDocument_formatting()<cr>
-  au FileType python,reason,ocaml nn <buffer> <localleader>r :call LanguageClient_textDocument_rename()<cr>
-  au FileType python,reason,ocaml nn <buffer> <localleader>u :call LanguageClient_textDocument_documentSymbol()<cr>
-augroup END
+" augroup lsp
+"   au!
+"   au FileType python,reason,ocaml setlocal omnifunc=LanguageClient#complete
+"   au FileType python,reason,ocaml nn <buffer> K :call LanguageClient_textDocument_hover()<cr>
+"   au FileType python,reason,ocaml nn <buffer> gd :call LanguageClient_textDocument_definition()<cr>
+"   au FileType python,reason,ocaml nn <buffer> <localleader>f :call LanguageClient_textDocument_formatting()<cr>
+"   au FileType python,reason,ocaml nn <buffer> <localleader>r :call LanguageClient_textDocument_rename()<cr>
+"   au FileType python,reason,ocaml nn <buffer> <localleader>u :call LanguageClient_textDocument_documentSymbol()<cr>
+" augroup END
 "===================================GIT/GITHUB===================================
   nnoremap <leader>ga :Git add -p<CR>i
   nnoremap <leader>gs :Gstatus<CR>
@@ -344,3 +341,4 @@ augroup END
   "nerdtree
   nmap <leader>n :NERDTreeToggle<CR>
   nmap <leader>j :NERDTreeFind<CR>
+
