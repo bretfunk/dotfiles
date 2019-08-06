@@ -121,7 +121,6 @@ let g:ale_fixers = {
       \ 'typescript': ['prettier'],
       \ 'typescript.tsx': ['prettier'],
       \ 'elixir': ['mix_format', 'trim_whitespace'],
-      \ 'elm': ['elm-format']
       \ }
 let g:ale_fix_on_save=1
 "==================================NAVIGATION===================================
@@ -131,22 +130,11 @@ Plug 'ggreer/the_silver_searcher'
 "==================================AUTOCOMPLETION===============================
 Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'}
 Plug 'Shougo/vimproc.vim', {'do': 'make'}
-" Plug 'autozimu/LanguageClient-neovim', { 'do': ':UpdateRemotePlugins' }
 Plug 'Shougo/echodoc.vim'
 Plug 'shougo/neosnippet.vim'
 Plug 'shougo/neosnippet-snippets'
 Plug 'ervandew/supertab'
 let g:deoplete#enable_at_startup = 1
-" let g:deoplete#file#enable_buffer_path = 1
-" let g:deoplete#enable_smart_case = 1
-" let g:LanguageClient_autoStart = 1
-" let g:LanguageClient_rootMarkers = {'elixir': ['mix.exs']}
-" let g:LanguageClient_serverCommands = {
-"       \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
-"       \ 'python': ['pyls'],
-"       \ 'reason': ['ocaml-language-server', '--stdio'],
-"       \ 'ocaml': ['ocaml-language-server', '--stdio'],
-"       \ }
 let g:neosnippet#snippets_directory = "~/dotfiles/snippets"
 let g:neosnippet#scope_aliases = {}
 let g:deoplete#keyword_patterns = {}

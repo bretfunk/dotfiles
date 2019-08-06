@@ -111,3 +111,5 @@ bower.json
 # VS CODE #
 ###########
 .vscode
+
+# i want to add the dist folder but git needs to see them
