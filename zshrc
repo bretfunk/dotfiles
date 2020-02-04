@@ -7,29 +7,33 @@ export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 #navigation
-alias 'cdc=cd ~/../../Volumes/code && ls'
-alias 'cdn=cd ~/../../Volumes/code/navitas && ls'
-alias 'cdb=cd ~/../../Volumes/code/navitas/broker-portal-frontend && ls'
-alias 'cdl=cd ~/../../Volumes/code/navitas/lapis && ls'
-alias 'cda=cd ~/../../Volumes/code/navitas/ad-hoc && ls'
-alias 'cdf=cd ~/../../Volumes/code/fun && ls'
-alias 'cdp=cd ~/../../Volumes/code/projects && ls'
-alias 'cdt=cd ~/../../Volumes/code/tutorials && ls'
+alias 'cdc=cd ~/Documents/code && ls'
+alias 'navitas=cd ~/Documents/code/navitas && ls'
+alias 'cdn=cd ~/Documents/code/navitas/navitex && ls'
+alias 'cdb=cd ~/Documents/code/navitas/broker-portal-frontend && ls'
+alias 'cdl=cd ~/Documents/code/navitas/lapis && ls'
+alias 'cda=cd ~/Documents/code/navitas/ad-hoc && ls'
+alias 'cdo=cd ~/Documents/code/navitas/oculus-client && ls'
+alias 'cdf=cd ~/Documents/code/fun && ls'
+alias 'cdp=cd ~/Documents/code/projects && ls'
+alias 'cdt=cd ~/Documents/code/tutorials && ls'
 alias 'vimrc=nvim ~/dotfiles/vimrc'
-alias 'zshrc=nvim ~/dotfiles/zshrc'
-alias 'init.vim=nvim ~/.config/nvim/init.vim'
 
 #yarn
 alias 'ys=yarn start && git add dist && git add -p'
 alias 'yul=yarn upgrade lapis && yarn start'
 
 #vim
-#need to ween myself off of typing vim and using nv instead
 alias 'nv=nvim .'
 
 #dotfiles
 alias 'dotfiles=cd ~/dotfiles && ls'
 alias 'scripts=cd ~/dotfiles && sh scripts.sh'
+alias 'zshrc=nvim ~/dotfiles/zshrc'
+alias 'vimrc=nvim ~/dotfiles/vimrc'
+alias 'bashrc=nvim ~/dotfiles/bashrc'
+alias 'gitignore=nvim ~/dotfiles/gitignore'
+alias 'init.vim=nvim ~/.config/nvim/init.vim'
 
 #git
 alias gl='git log --graph'
@@ -61,9 +65,6 @@ alias tsession='tmate display -p '#{tmate_ssh}''
 #ls with color
 alias ls='ls -F -G'
 
-#bash autosuggestions
-source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
-
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 #thefuck CLI helper
@@ -72,6 +73,35 @@ eval $(thefuck --alias fuck)
 # node
 export PATH="/usr/local/opt/node@8/bin:$PATH"
 export PATH="/usr/local/opt/python3/bin:$PATH"
-eval "$(rbenv init -)"
+
 # elixir
 # export PATH="$PATH:/path/to/elixir/bin"
+#make zshrc use vi keybindings
+# bindkey -v
+
+
+#Path to your oh-my-zsh installation.
+export ZSH="/Users/bretfunk/.oh-my-zsh"
+
+ # ZSH_THEME="robbyrussell"
+ # ZSH_THEME="avit"
+ ZSH_THEME="spaceship"
+
+plugins=(git
+zsh-syntax-highlighting
+zsh-autosuggestions
+)
+source $ZSH/oh-my-zsh.sh
+
+# User configuration
+# no idea what this does but it was in the instructions so keeping it in here
+ export MANPATH="/usr/local/man:$MANPATH"
+ export PATH="/usr/local/opt/node@8/bin:$PATH"
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
+
+# Add Node Version Manager
+source ~/.nvm/nvm.sh
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
