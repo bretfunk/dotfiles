@@ -101,6 +101,7 @@ Plug 'tpope/vim-rhubarb'
 "==================================NAVIGATION===================================
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+Plug 'ggreer/the_silver_searcher'
 " command! -bang -nargs=* Ag call fzf#vim#ag(<q-args>, {'options': '--delimiter : --nth 4..'}, <bang>0)
 "==================================AUTOCOMPLETION===============================
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
