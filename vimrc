@@ -101,11 +101,18 @@ Plug 'tpope/vim-rhubarb'
 "==================================NAVIGATION===================================
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-Plug 'ggreer/the_silver_searcher'
+" command! -bang -nargs=* Ag call fzf#vim#ag(<q-args>, {'options': '--delimiter : --nth 4..'}, <bang>0)
 "==================================AUTOCOMPLETION===============================
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'Shougo/echodoc.vim'
-Plug 'SirVer/ultisnips'
+let g:coc_global_extensions = [
+  \ 'coc-snippets',
+  \ 'coc-pairs',
+  \ 'coc-tsserver',
+  \ 'coc-eslint', 
+  \ 'coc-prettier', 
+  \ 'coc-json', 
+  \ ]
 "===================================WEB=========================================
 Plug 'mattn/emmet-vim'
 let g:user_emmet_settings = {
@@ -154,7 +161,7 @@ let NERDTreeIgnore=['\.DS_Store', '\~$', '\.swp']
 "====================================PLUG END========================================
 call plug#end()
 set background=dark
-colorscheme github
+colorscheme Frantic
 let g:airline_theme='simple'
 filetype plugin indent on
 syntax enable
@@ -207,8 +214,7 @@ augroup END
   nn ]b :bn<CR>
   "nn <BACKSPACE> :bp<CR>
   " use fzf to fuzzy find a file in the current project.
-  " changed to be closer to vscode
-  nn <leader>p :Files<CR>
+  nn <leader>f :Files<CR>
   " use fzf to fizzy find in the current file
   nn <leader>l :Lines<CR>
   " shortcut to help
@@ -219,11 +225,6 @@ augroup END
   nn <leader>k :q<CR>
   " close all windows except current
   nn <leader>o :only<CR>
-  " Linter bindings, press <leader>l then n/p to navigate
-  " between errors or press d to view the detail.
-  nn <silent> <leader>ld :ALEDetail<CR>
-  nn <silent> <leader>ln :ALENext<CR>
-  nn <silent> <leader>lp :ALEPrevious<CR>
   "show where you have been
   nn <leader>m :History<CR>
   "show open buffers
@@ -262,5 +263,4 @@ augroup END
   nnoremap <silent> <Esc> :nohlsearch<Bar>:echo<CR>
   "nerdtree
   nmap <leader>n :NERDTreeToggle<CR>
-  nmap <leader>j :NERDTreeFind<CR>
 

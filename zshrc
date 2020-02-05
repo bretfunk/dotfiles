@@ -1,10 +1,14 @@
-# Set Spaceship ZSH as a prompt
-autoload -U promptinit; promptinit
-prompt spaceship
-
-# respect gitignore
+# fzf / respect gitignore
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+
+#file navigation
+alias ..=' cd ..'
+alias ...=' cd ../..'
+alias ....=' cd ../../..'
+alias .....=' cd ../../../..'
+alias ......=' cd ../../../../..'
 
 #navigation
 alias 'cdc=cd ~/Documents/code && ls'
@@ -17,14 +21,13 @@ alias 'cdo=cd ~/Documents/code/navitas/oculus-client && ls'
 alias 'cdf=cd ~/Documents/code/fun && ls'
 alias 'cdp=cd ~/Documents/code/projects && ls'
 alias 'cdt=cd ~/Documents/code/tutorials && ls'
-alias 'vimrc=nvim ~/dotfiles/vimrc'
 
 #yarn
 alias 'ys=yarn start && git add dist && git add -p'
 alias 'yul=yarn upgrade lapis && yarn start'
 
 #vim
-alias 'nv=nvim .'
+alias 'nv=nvim'
 
 #dotfiles
 alias 'dotfiles=cd ~/dotfiles && ls'
@@ -33,7 +36,9 @@ alias 'zshrc=nvim ~/dotfiles/zshrc'
 alias 'vimrc=nvim ~/dotfiles/vimrc'
 alias 'bashrc=nvim ~/dotfiles/bashrc'
 alias 'gitignore=nvim ~/dotfiles/gitignore'
+alias 'coc=nvim ~/dotfiles/coc-settings'
 alias 'init.vim=nvim ~/.config/nvim/init.vim'
+alias 'coc=nvim ~/.config/nvim/coc-settings.json'
 
 #git
 alias gl='git log --graph'
@@ -85,7 +90,8 @@ export ZSH="/Users/bretfunk/.oh-my-zsh"
 
  # ZSH_THEME="robbyrussell"
  # ZSH_THEME="avit"
- ZSH_THEME="spaceship"
+ # ZSH_THEME="miloshadzic"
+ ZSH_THEME="muse"
 
 plugins=(git
 zsh-syntax-highlighting
@@ -104,4 +110,3 @@ export PATH="$PATH:$HOME/.rvm/bin"
 # Add Node Version Manager
 source ~/.nvm/nvm.sh
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
