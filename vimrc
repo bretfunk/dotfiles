@@ -91,7 +91,7 @@ let g:airline#extensions#ale#enabled = 1
 let g:airline#extensions#tabline#enabled = 1
 "==================================UTILITY===============================
 Plug 'scrooloose/nerdtree'
-Plug 'jiangmiao/auto-pairs'
+Plug 'Raimondi/delimitMate'
 Plug 'tpope/vim-commentary'
 let NERDSpaceDelims=1
 "fugitive is for git commands
@@ -105,7 +105,7 @@ Plug 'ggreer/the_silver_searcher'
 " command! -bang -nargs=* Ag call fzf#vim#ag(<q-args>, {'options': '--delimiter : --nth 4..'}, <bang>0)
 "==================================AUTOCOMPLETION===============================
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'Shougo/echodoc.vim'
+" Plug 'Shougo/echodoc.vim'
 let g:coc_global_extensions = [
   \ 'coc-snippets',
   \ 'coc-pairs',
@@ -127,7 +127,6 @@ Plug 'elzr/vim-json' "Better JSON highlighting
 "==================================JAVASCRIPT===================================
 Plug 'pangloss/vim-javascript', {'for': ['javascript', 'javascript.jsx']}
 Plug 'mxw/vim-jsx', {'for': ['javascript', 'javascript.jsx']}
-Plug 'posva/vim-vue'
 let g:jsx_ext_required = 0  "Always use jsx syntax
 let g:vue_disable_pre_processors=1
 
@@ -216,8 +215,11 @@ augroup END
   "nn <BACKSPACE> :bp<CR>
   " use fzf to fuzzy find a file in the current project.
   nn <leader>f :Files<CR>
-  " use fzf to fizzy find in the current file
-  nn <leader>l :Lines<CR>
+  " linter next,prev,info
+  nmap <silent> <leader>ld <Plug>(coc-diagnostic-info)
+  nmap <silent> <leader>ln <Plug>(coc-diagnostic-next)
+  nmap <silent> <leader>lp <Plug>(coc-diagnostic-prev)
+
   " shortcut to help
   nn <leader>h :Helptags<CR>
   " Save files quickly (50% faster than shift+:, w, <CR>!)
@@ -265,3 +267,16 @@ augroup END
   "nerdtree
   nmap <leader>n :NERDTreeToggle<CR>
 
+" Use tab completion
+" :help coc-completion
+function! Check_back_space() abort
+  let col = col('.') - 1
+  echom(col)
+  echom(getline('.')[col - 1])
+  return !col || getline('.')[col - 1]  =~ '\s'
+endfunction
+
+inoremap <silent><expr> <TAB>
+  \ pumvisible() ? "\<C-n>" :
+  \ Check_back_space() ? "\<TAB>" :
+  \ coc#refresh()

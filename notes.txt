@@ -1,0 +1,2 @@
+fzf and :Ag wouldn't work in vim until I brew installed the_silver_searcher,
+    having it in the vimrc didn't matter
