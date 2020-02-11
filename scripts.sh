@@ -12,12 +12,7 @@ ln -s ~/dotfiles/bashrc ~/.bashrc
 ln -s ~/dotfiles/zshrc ~/.zshrc
 ln -s ~/dotfiles/gitignore ~/.gitignore
 
-COMP=$(scutil --get ComputerName)
-echo $COMP
-# echo $(scutil --get ComputerName)
-
-# computerName=$(scutil --get ComputerName)
-
+# if and only if this is the main computer push to github
 if [ "$COMP" == "Bret’s MacBook Pro" ]
   then
   git add .
