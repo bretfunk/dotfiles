@@ -12,14 +12,14 @@ ln -s ~/dotfiles/bashrc ~/.bashrc
 ln -s ~/dotfiles/zshrc ~/.zshrc
 ln -s ~/dotfiles/gitignore ~/.gitignore
 
-echo $(scutil --get ComputerName)
+COMP=$(scutil --get ComputerName)
+echo $COMP
+# echo $(scutil --get ComputerName)
 
-computerName=$(scutil --get ComputerName)
+# computerName=$(scutil --get ComputerName)
 
-# if [$(scutil --get ComputerName) = "Bret’s MacBook Pro"]
-if [ a = a ]
+if [ "$COMP" == "Bret’s MacBook Pro" ]
   then
-  echo "Bret's computer"
   git add .
   git commit -m "Updated on $(date)"
   git push
