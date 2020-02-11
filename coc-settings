@@ -1,0 +1,32 @@
+
+{
+  "diagnostic.virtualText": true,
+  "diagnostic.messageTarget": "echo",
+  "coc.source.around.priority": 9,
+  "coc.source.buffer.priority": 9,
+  "eslint.options": {"configFile": "./.eslintrc"},
+  "json.format.enable": false,
+  "prettier.requireConfig": true,
+  "list.insertMappings": {
+    "<C-n>": "normal:j",
+    "<C-p>": "normal:k"
+  },
+  "coc.preferences.formatOnSaveFiletypes": [
+    "css",
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "json"
+  ],
+  "eslint.filetypes": ["javascript", "javascriptreact", "typescript", "typescriptreact"],
+  "tsserver.formatOnType": false,
+  "languageserver": {
+    "elixirLS": {
+      "command": "/Users/bretfunk/.config/nvim/elixir-ls/language_server.sh",
+      "filetypes": ["elixir", "eelixir"],
+      "settings": { "dialyzerEnabled": false}
+    },
+  }
+}
+
