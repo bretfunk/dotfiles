@@ -14,10 +14,10 @@ ln -s ~/dotfiles/gitignore ~/.gitignore
 
 # only push to github if main computer
 COMP=$(scutil --get ComputerName)
-if [ "$COMP" == "Apollo" ]
+if [ "$COMP" == "Tomcat" ]
   then
   git add .
   git commit -m "Updated on $(date)"
   git push
-  echo "Gitting Complete"
+  echo "***Gitting Complete***"
 fi
