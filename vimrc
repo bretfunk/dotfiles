@@ -7,7 +7,7 @@ set softtabstop=2                  "2 spaces for tab
 set expandtab                      "no tabs
 set nowrap                         "no softwrap
 set noshowmode                     "don't show insert in echo area
-set foldlevel=10                   "start with a big fold
+set foldlevel=100                   "start with a big fold
 set list                           "show tab characters
 set timeoutlen=1000 ttimeoutlen=-1 "better timeouts
 set number                         "line numbers

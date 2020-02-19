@@ -19,5 +19,4 @@ if [ "$COMP" == "Tomcat" ]
   git add .
   git commit -m "Updated on $(date)"
   git push
-  echo "***Gitting Complete***"
 fi
