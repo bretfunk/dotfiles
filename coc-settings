@@ -17,6 +17,7 @@
     "javascriptreact",
     "typescript",
     "typescriptreact",
+    "python",
     "json"
   ],
   "eslint.filetypes": ["javascript", "javascriptreact", "typescript", "typescriptreact"],

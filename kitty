@@ -1,0 +1,79 @@
+font_family      Fira Code
+bold_font        auto
+italic_font      auto
+bold_italic_font auto
+font_size 14.0
+
+# Kitty snow colors - dark
+# Just copy the contents into your kitty config file
+
+background #2c2d30
+foreground #afb7c0
+selection_background #afb7c0
+selection_foreground #2c2d30
+url_color #ab916d
+cursor #cbd2d9
+
+# normal
+color0 #2c2d30
+color1 #be868c
+color2 #7f9d77
+color3 #ab916d
+color4 #759abd
+color5 #a88cb3
+color6 #5da19f
+color7 #afb7c0
+
+# bright
+color8 #363a3e
+color9 #be868c
+color10 #7f9d77
+color11 #ab916d
+color12 #759abd
+color13 #a88cb3
+color14 #5da19f
+color15 #cbd2d9
+
+# Scrolling
+map ctrl+shift+up        scroll_line_up
+map ctrl+shift+down      scroll_line_down
+map ctrl+shift+k         scroll_line_up
+map ctrl+shift+j         scroll_line_down
+map ctrl+shift+page_up   scroll_page_up
+map ctrl+shift+page_down scroll_page_down
+map ctrl+shift+home      scroll_home
+map ctrl+shift+end       scroll_end
+map ctrl+shift+h         show_scrollback
+
+# Window management
+map ctrl+shift+enter    new_window_with_cwd
+map ctrl+shift+f        move_window_forward
+map ctrl+shift+b        move_window_backward
+map ctrl+shift+`        move_window_to_top
+map ctrl+shift+1        first_window
+map ctrl+shift+2        second_window
+map ctrl+shift+3        third_window
+map ctrl+shift+4        fourth_window
+map ctrl+shift+5        fifth_window
+map ctrl+shift+6        sixth_window
+map ctrl+shift+7        seventh_window
+map ctrl+shift+8        eighth_window
+map ctrl+shift+9        ninth_window
+map ctrl+shift+0        tenth_window
+
+# Tab management
+map cmd+n               next_tab
+map cmd+p               previous_tab
+map cmd+t               new_tab_with_cwd
+map ctrl+shift+q        close_tab
+map cmd+r               set_tab_title
+map ctrl+shift+l        next_layout
+map ctrl+shift+.        move_tab_forward
+map ctrl+shift+,        move_tab_backward
+map cmd+w               no_op
+
+# Miscellaneous
+map ctrl+shift+equal    increase_font_size
+map ctrl+shift+minus    decrease_font_size
+map ctrl+shift+backspace restore_font_size
+

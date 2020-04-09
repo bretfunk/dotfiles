@@ -7,7 +7,7 @@ set softtabstop=2                  "2 spaces for tab
 set expandtab                      "no tabs
 set nowrap                         "no softwrap
 set noshowmode                     "don't show insert in echo area
-set foldlevel=100                   "start with a big fold
+set foldlevel=100                   "folds are stupid
 set list                           "show tab characters
 set timeoutlen=1000 ttimeoutlen=-1 "better timeouts
 set number                         "line numbers
@@ -37,6 +37,7 @@ set incsearch                      " Find the next match as we type the search
 set hlsearch                       " Highlight searches by default
 set autoread                        "auto loads changed file, like when changing branches
 set clipboard=unnamed               "copy to clipboard
+se mouse+=a                       "mouse doesn't copy line numbers
 "===================================IGNORE======================================
 set wildignore+=*/_build
 set wildignore+=*/.cljs_rhino_repl
@@ -92,12 +93,20 @@ let g:airline#extensions#tabline#enabled = 1
 "==================================UTILITY===============================
 Plug 'scrooloose/nerdtree'
 Plug 'Raimondi/delimitMate'
+let delimitMate_expand_cr=1
+let delimitMate_jump_expansion=1
+let delimitMate_balance_matchpairs=1
+Plug 'justinmk/vim-sneak'
+let g:sneak#use_ic_scs = 1
+let g:sneak#map_netrw = 0
+let g:sneak#label = 1
 Plug 'tpope/vim-commentary'
 let NERDSpaceDelims=1
 "fugitive is for git commands
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-rhubarb'
+Plug 'tpope/vim-repeat'
 "==================================NAVIGATION===================================
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
@@ -124,6 +133,12 @@ let g:user_emmet_settings = {
 \  'slime': {'extends': 'slim'}
 \}
 Plug 'elzr/vim-json' "Better JSON highlighting
+"==================================HTML/CSS===================================
+Plug 'turbio/bracey.vim' "vscode liveserver for vim 
+"==================================MARKDOWN===================================
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  } "Markdownpreview
+" turn on spellcheck automatically for markdown files
+:autocmd BufRead,BufNewFile *.md setlocal spell
 "==================================JAVASCRIPT===================================
 Plug 'pangloss/vim-javascript', {'for': ['javascript', 'javascript.jsx']}
 Plug 'mxw/vim-jsx', {'for': ['javascript', 'javascript.jsx']}
@@ -147,6 +162,8 @@ au! BufNewFile,BufRead *.slim set filetype=slime
 "===================================RUBY========================================
 Plug 'vim-ruby/vim-ruby', {'for': 'ruby'}
 Plug 'tpope/vim-rbenv', { 'for': 'ruby' }
+"==================================PYTHON=======================================
+au! FileType python setlocal tabstop=4 shiftwidth=4 softtabstop=4
 "====================================ETC========================================
 "nerdtree
 let NERDTreeMapActivateNode='<right>'
@@ -161,7 +178,7 @@ let NERDTreeIgnore=['\.DS_Store', '\~$', '\.swp']
 "====================================PLUG END========================================
 call plug#end()
 set background=dark
-colorscheme Frantic
+colorscheme Codecourse
 let g:airline_theme='simple'
 filetype plugin indent on
 syntax enable

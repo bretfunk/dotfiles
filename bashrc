@@ -4,3 +4,6 @@
 if [ -f /sw/etc/bash_completion ]; then
    . /sw/etc/bash_completion
  fi
+
+ #kitty
+ source <(kitty + complete setup bash)

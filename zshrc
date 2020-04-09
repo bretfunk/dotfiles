@@ -4,6 +4,12 @@
 export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
+# kitty
+autoload -Uz compinit
+compinit
+# Completion for kitty
+kitty + complete setup zsh | source /dev/stdin
+
 #file navigation
 alias ..=' cd ..'
 alias ...=' cd ../..'
@@ -40,6 +46,9 @@ alias 'gitignore=nvim ~/dotfiles/gitignore'
 alias 'coc=nvim ~/dotfiles/coc-settings'
 alias 'init.vim=nvim ~/.config/nvim/init.vim'
 alias 'coc=nvim ~/.config/nvim/coc-settings.json'
+alias 'kitty=nvim ~/.config/kitty/kitty.conf'
+alias 'notes=cd ~/notes && ls'
+
 
 #git
 alias gl='git log --graph'
@@ -49,6 +58,7 @@ alias gcm='git commit -m'
 alias gb='git branch'
 alias master='git checkout master'
 alias last='git log -1 HEAD'
+alias log='git log --pretty=format:"%h - %an, %ar : %s"'
 
 # alias gf='git fetch --all --prune'
 # alias gpr='git pull --rebase source master'

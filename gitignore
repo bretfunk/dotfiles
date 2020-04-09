@@ -55,6 +55,7 @@ Session.vim
 # JavaScript
 #############
 node_modules
+/dist
 
 # Python
 #############
@@ -102,3 +103,6 @@ tags*
 
 # Typescript incremental cache
 .rts2_cache*
+
+# until Colby fixes navitex
+*priv/static
