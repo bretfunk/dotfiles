@@ -12,7 +12,8 @@ foreground #afb7c0
 selection_background #afb7c0
 selection_foreground #2c2d30
 url_color #ab916d
-cursor #cbd2d9
+cursor #cccccc
+cursor_text_color #111111
 
 # normal
 color0 #2c2d30
@@ -64,7 +65,6 @@ map ctrl+shift+0        tenth_window
 # Tab management
 map cmd+n               next_tab
 map cmd+p               previous_tab
-map cmd+t               new_tab_with_cwd
 map cmd+t               new_tab_with_cwd
 map ctrl+shift+q        close_tab
 map cmd+r               set_tab_title
