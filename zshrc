@@ -44,9 +44,9 @@ alias 'vimrc=nvim ~/dotfiles/vimrc'
 alias 'bashrc=nvim ~/dotfiles/bashrc'
 alias 'gitignore=nvim ~/dotfiles/gitignore'
 alias 'coc=nvim ~/dotfiles/coc-settings'
-alias 'init.vim=nvim ~/.config/nvim/init.vim'
-alias 'coc=nvim ~/.config/nvim/coc-settings.json'
-alias 'kitty=nvim ~/.config/kitty/kitty.conf'
+# alias 'init.vim=nvim ~/.config/nvim/init.vim'
+# alias 'coc=nvim ~/.config/nvim/coc-settings.json'
+alias 'kitty=nvim ~/dotfiles/kitty'
 alias 'notes=cd ~/notes && ls'
 
 
