@@ -5,7 +5,6 @@ bold_italic_font auto
 font_size 14.0
 
 # Kitty snow colors - dark
-# Just copy the contents into your kitty config file
 
 background #2c2d30
 foreground #afb7c0
@@ -13,7 +12,7 @@ selection_background #afb7c0
 selection_foreground #2c2d30
 url_color #ab916d
 cursor #cccccc
-cursor_text_color #111111
+cursor_text_color #ffffff
 
 # normal
 color0 #2c2d30
