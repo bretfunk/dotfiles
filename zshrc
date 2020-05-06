@@ -25,6 +25,7 @@ alias 'cdb=cd ~/Documents/code/navitas/broker-portal-frontend && ls'
 alias 'cdl=cd ~/Documents/code/navitas/lapis && ls'
 alias 'cda=cd ~/Documents/code/navitas/ad-hoc && ls'
 alias 'cdo=cd ~/Documents/code/navitas/oculus-client && ls'
+alias 'cdu=cd ~/Documents/code/navitas/ucbi-payment-relief-frontend && ls'
 alias 'cdf=cd ~/Documents/code/fun && ls'
 alias 'cdp=cd ~/Documents/code/projects && ls'
 alias 'cdt=cd ~/Documents/code/tutorials && ls'
@@ -121,3 +122,6 @@ export PATH="$PATH:$HOME/.rvm/bin"
 # Add Node Version Manager
 source ~/.nvm/nvm.sh
 
+
+# added by travis gem
+[ -f /Users/bretfunk/.travis/travis.sh ] && source /Users/bretfunk/.travis/travis.sh

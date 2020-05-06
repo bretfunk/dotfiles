@@ -5,13 +5,14 @@
   "coc.source.around.priority": 9,
   "coc.source.buffer.priority": 9,
   "eslint.options": {"configFile": "./.eslintrc"},
-  "json.format.enable": false,
+  "json.format.enable": true,
   "prettier.requireConfig": true,
   "list.insertMappings": {
     "<C-n>": "normal:j",
     "<C-p>": "normal:k"
   },
   "coc.preferences.formatOnSaveFiletypes": [
+    "html",
     "css",
     "javascript",
     "javascriptreact",

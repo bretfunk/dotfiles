@@ -85,7 +85,8 @@ set cursorline
 Plug 'luochen1990/rainbow'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'Yggdroot/indentLine'
+"it is concealing the double quotes in json files and driving me crazy
+" Plug 'Yggdroot/indentLine'
 let g:rainbow_active = 1
 "airline
 let g:airline#extensions#ale#enabled = 1
@@ -249,6 +250,8 @@ augroup END
   nn <leader>m :History<CR>
   "show open buffers
   nn <leader>b :Buffers<CR>
+  "fix misspelled word
+  nn <leader>r 1z=
   " new tab
   " Colby uses :tabe but that just opens a blank file not in the current app
   nn <leader>t :tabe%<CR>
