@@ -123,6 +123,7 @@ let g:coc_global_extensions = [
   \ 'coc-eslint', 
   \ 'coc-prettier', 
   \ 'coc-json', 
+  \ 'coc-svelte'
   \ ]
 "===================================WEB=========================================
 Plug 'mattn/emmet-vim'
@@ -152,6 +153,10 @@ Plug 'peitalin/vim-jsx-typescript'
 au! FileType typescript set foldmethod=indent
 au! FileType typescript.tsx set foldmethod=indent
 
+"==================================SVELTE===================================
+Plug 'leafOfTree/vim-svelte-plugin'
+" au! FileType svelte set foldmethod=indent
+" au! FileType svelte.svelte set foldmethod=indent
 "==================================ELIXIR=======================================
 Plug 'elixir-lang/vim-elixir'
 Plug 'mhinz/vim-mix-format'
@@ -191,11 +196,11 @@ endif
 "===================================LSP Bindings===================================
 augroup lsp
   au!
-  au FileType terraform,cs,vue,json,elixir,eelixir,reason,ocaml,rust,python,javacript,javascript.jsx,typescript,typescript.tsx nn <silent> <buffer> K :call CocAction("doHover")<CR>
-  au FileType terraform,cs,vue,json,elixir,eelixir,reason,ocaml,rust,python,javacript,javascript.jsx,typescript,typescript.tsx nn <silent> <buffer> gd :call CocAction("jumpDefinition")<CR>
-  au FileType terraform,cs,vue,json,elixir,eelixir,reason,ocaml,rust,python,javacript,javascript.jsx,typescript,typescript.tsx nn <silent> <buffer> gr :call CocAction("jumpReferences")<CR>
-  au FileType terraform,cs,vue,json,elixir,eelixir,reason,ocaml,rust,python,javacript,javascript.jsx,typescript,typescript.tsx nn <buffer> <localleader>i :call CocAction("workspaceSymbols")<CR>
-  au FileType terraform,cs,vue,json,elixir,eelixir,reason,ocaml,rust,python,javacript,javascript.jsx,typescript,typescript.tsx nn <buffer> <localleader>r :call CocAction("rename")<CR>
+  au FileType terraform,cs,vue,json,elixir,eelixir,reason,ocaml,rust,python,javacript,javascript.jsx,typescript,typescript.tsx,svelte nn <silent> <buffer> K :call CocAction("doHover")<CR>
+  au FileType terraform,cs,vue,json,elixir,eelixir,reason,ocaml,rust,python,javacript,javascript.jsx,typescript,typescript.ts,svelte  nn <silent> <buffer> gd :call CocAction("jumpDefinition")<CR>
+  au FileType terraform,cs,vue,json,elixir,eelixir,reason,ocaml,rust,python,javacript,javascript.jsx,typescript,typescript.ts,svelte  nn <silent> <buffer> gr :call CocAction("jumpReferences")<CR>
+  au FileType terraform,cs,vue,json,elixir,eelixir,reason,ocaml,rust,python,javacript,javascript.jsx,typescript,typescript.ts,svelte  nn <buffer> <localleader>i :call CocAction("workspaceSymbols")<CR>
+  au FileType terraform,cs,vue,json,elixir,eelixir,reason,ocaml,rust,python,javacript,javascript.jsx,typescript,typescript.ts,svelte  nn <buffer> <localleader>r :call CocAction("rename")<CR>
   au CursorHoldI,CursorMovedI * call CocActionAsync('showSignatureHelp')
 augroup END
 "===================================GIT/GITHUB===================================

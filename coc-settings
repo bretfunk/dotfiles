@@ -19,9 +19,11 @@
     "typescript",
     "typescriptreact",
     "python",
-    "json"
+    "json",
+      "svelte"
   ],
-  "eslint.filetypes": ["javascript", "javascriptreact", "typescript", "typescriptreact"],
+  "eslint.filetypes": ["javascript", "javascriptreact", "typescript",
+  "typescriptreact", "svelte"],
   "tsserver.formatOnType": false,
   "languageserver": {
     "elixirLS": {
