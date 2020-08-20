@@ -36,7 +36,7 @@ set shortmess+=c                   "make that mess shorter?
 set incsearch                      " Find the next match as we type the search
 set hlsearch                       " Highlight searches by default
 set autoread                        "auto loads changed file, like when changing branches
-set clipboard=unnamed               "copy to clipboard
+" set clipboard=unnamed               "copy to clipboard
 se mouse+=a                       "mouse doesn't copy line numbers
 "===================================IGNORE======================================
 set wildignore+=*/_build
@@ -115,7 +115,6 @@ Plug 'ggreer/the_silver_searcher'
 " command! -bang -nargs=* Ag call fzf#vim#ag(<q-args>, {'options': '--delimiter : --nth 4..'}, <bang>0)
 "==================================AUTOCOMPLETION===============================
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-" Plug 'Shougo/echodoc.vim'
 let g:coc_global_extensions = [
   \ 'coc-snippets',
   \ 'coc-pairs',
@@ -123,7 +122,8 @@ let g:coc_global_extensions = [
   \ 'coc-eslint', 
   \ 'coc-prettier', 
   \ 'coc-json', 
-  \ 'coc-svelte'
+  \ 'coc-svelte',
+  \ 'coc-elixir'
   \ ]
 "===================================WEB=========================================
 Plug 'mattn/emmet-vim'
@@ -136,7 +136,7 @@ let g:user_emmet_settings = {
 \}
 Plug 'elzr/vim-json' "Better JSON highlighting
 "==================================HTML/CSS===================================
-Plug 'turbio/bracey.vim' "vscode liveserver for vim 
+Plug 'turbio/bracey.vim' "vscode liveserver for vim
 "==================================MARKDOWN===================================
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  } "Markdownpreview
 " turn on spellcheck automatically for markdown files
@@ -155,9 +155,10 @@ au! FileType typescript.tsx set foldmethod=indent
 
 "==================================SVELTE===================================
 Plug 'leafOfTree/vim-svelte-plugin'
-" au! FileType svelte set foldmethod=indent
-" au! FileType svelte.svelte set foldmethod=indent
+" Plug 'evanleck/vim-svelte'
+au! BufNewFile,BufRead *.svelte set ft=html
 "==================================ELIXIR=======================================
+Plug 'amiralies/coc-elixir', {'do': 'yarn install && yarn prepack'}
 Plug 'elixir-lang/vim-elixir'
 Plug 'mhinz/vim-mix-format'
 Plug 'slime-lang/vim-slime-syntax'
@@ -184,10 +185,13 @@ let NERDTreeIgnore=['\.DS_Store', '\~$', '\.swp']
 "====================================PLUG END========================================
 call plug#end()
 set background=dark
-colorscheme Codecourse
+" colorscheme Codecourse
+colorscheme Comrade
 let g:airline_theme='simple'
 filetype plugin indent on
 syntax enable
+" prob a duplicate of the above but required by vim-elixir
+syntax on
 "===================================FAST SEARCH=================================
 if executable('ag')
   set grepprg=ag\ --nogroup\ --nocolor\ --ignore-case\ --column
@@ -248,7 +252,7 @@ augroup END
   " Save files quickly (50% faster than shift+:, w, <CR>!)
   nn <leader>w :w<CR>
   " Quit files quickly (also 50% faster!)
-  nn <leader>k :q<CR>
+  " nn <leader>k :q<CR>
   " close all windows except current
   nn <leader>o :only<CR>
   "show where you have been

@@ -13,6 +13,8 @@
   },
   "coc.preferences.formatOnSaveFiletypes": [
     "html",
+    "leex",
+    "eex",
     "css",
     "javascript",
     "javascriptreact",
@@ -20,17 +22,10 @@
     "typescriptreact",
     "python",
     "json",
-      "svelte"
+    "svelte"
   ],
   "eslint.filetypes": ["javascript", "javascriptreact", "typescript",
   "typescriptreact", "svelte"],
   "tsserver.formatOnType": false,
-  "languageserver": {
-    "elixirLS": {
-      "command": "/Users/bretfunk/.config/nvim/elixir-ls/language_server.sh",
-      "filetypes": ["elixir", "eelixir"],
-      "settings": { "dialyzerEnabled": false}
-    },
-  }
 }
 
