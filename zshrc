@@ -67,7 +67,7 @@ alias log='git log --pretty=format:"%h - %an, %ar : %s"'
 # git rebase source/<source-branch>
 alias update='git fetch --all --prune && git rebase source/master'
 # alias squash='git rebase -i HEAD~5'
-alias amend='git commit --amend --no-edit'
+# alias amend='git commit --amend --no-edit'
 
 alias clean='git clean -f'
 alias reset='git reset --hard'

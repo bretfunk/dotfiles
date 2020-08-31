@@ -11,7 +11,7 @@ set foldlevel=100                   "folds are stupid
 set list                           "show tab characters
 set timeoutlen=1000 ttimeoutlen=-1 "better timeouts
 set number                         "line numbers
-set relativenumber                 "line numbers
+" set relativenumber                 "line numbers
 set mouse=                        "dont use the mouse
 set cindent                        "auto indent
 set foldmethod=syntax              "code folding
@@ -93,10 +93,11 @@ let g:airline#extensions#ale#enabled = 1
 let g:airline#extensions#tabline#enabled = 1
 "==================================UTILITY===============================
 Plug 'scrooloose/nerdtree'
-Plug 'Raimondi/delimitMate'
-let delimitMate_expand_cr=1
-let delimitMate_jump_expansion=1
-let delimitMate_balance_matchpairs=1
+" delimitMate doesn't play nice with vim hardmode so commenting out for now
+" Plug 'Raimondi/delimitMate'
+" let delimitMate_expand_cr=1
+" let delimitMate_jump_expansion=1
+" let delimitMate_balance_matchpairs=1
 Plug 'justinmk/vim-sneak'
 let g:sneak#use_ic_scs = 1
 let g:sneak#map_netrw = 0
@@ -112,9 +113,12 @@ Plug 'tpope/vim-repeat'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'ggreer/the_silver_searcher'
+Plug 'wikitopian/hardmode'
 " command! -bang -nargs=* Ag call fzf#vim#ag(<q-args>, {'options': '--delimiter : --nth 4..'}, <bang>0)
+" enable hardmode by default
+autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
 "==================================AUTOCOMPLETION===============================
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release'}
 let g:coc_global_extensions = [
   \ 'coc-snippets',
   \ 'coc-pairs',
@@ -178,7 +182,7 @@ let g:NERDTreeQuitOnOpen = 1
 let NERDTreeShowHidden=1
 let NERDTreeIgnore=['\.DS_Store', '\~$', '\.swp']
 "relative numbers in nerdtree
-:let g:NERDTreeShowLineNumbers=1
+" :let g:NERDTreeShowLineNumbers=1
 :autocmd BufEnter NERD_* setlocal rnu
 " open nerdtree in current dir
 " autocmd BufEnter * lcd %:p:h

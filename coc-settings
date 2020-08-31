@@ -15,6 +15,7 @@
     "html",
     "leex",
     "eex",
+    "ex",
     "css",
     "javascript",
     "javascriptreact",
