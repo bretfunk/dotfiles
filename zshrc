@@ -36,7 +36,7 @@ alias 'ys=yarn start && git add dist && git add -p'
 alias 'yul=yarn upgrade lapis && yarn start'
 
 #vim
-alias 'nv=nvim'
+alias 'v=nvim'
 
 #dotfiles
 alias 'dotfiles=cd ~/dotfiles && ls'

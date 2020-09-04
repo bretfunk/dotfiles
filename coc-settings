@@ -6,6 +6,7 @@
   "coc.source.buffer.priority": 9,
   "eslint.options": {"configFile": "./.eslintrc"},
   "json.format.enable": true,
+  /* need to add prettier file like eslint above */
   "prettier.requireConfig": true,
   "list.insertMappings": {
     "<C-n>": "normal:j",
