@@ -1,12 +1,5 @@
 #!/bin/bash
 
-# rm ~/.config/nvim/init.vim
-# rm ~/.config/nvim/coc-settings.json
-# rm ~/.config/kitty/kitty.conf
-# rm ~/.bashrc
-# rm ~/.zshrc
-# rm ~/.gitignore
-
 ln -s -f ~/dotfiles/vimrc ~/.config/nvim/init.vim
 ln -s -f ~/dotfiles/coc-settings ~/.config/nvim/coc-settings.json
 ln -s -f ~/dotfiles/kitty ~/.config/kitty/kitty.conf
