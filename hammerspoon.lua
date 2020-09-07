@@ -20,8 +20,8 @@ if caffeine then
 end
 
 -- window management
---set left command to hyper in karabiner
-local hyper = {"ctrl", "alt", "cmd"}
+--set right command to hyper in karabiner
+local hyper = {"ctrl", "alt", "cmd", "shift"}
 
 hs.loadSpoon("MiroWindowsManager")
 
