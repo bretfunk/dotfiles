@@ -6,38 +6,37 @@ set shiftwidth=2                   "2 spaces for tab
 set softtabstop=2                  "2 spaces for tab
 set expandtab                      "no tabs
 set nowrap                         "no softwrap
-set noshowmode                     "don't show insert in echo area
+" set noshowmode                     "don't show insert in echo area
 set foldlevel=100                   "folds are stupid
+set foldmethod=syntax              "code folding
 set list                           "show tab characters
 set timeoutlen=1000 ttimeoutlen=-1 "better timeouts
 set number                         "line numbers
-set relativenumber                 "line numbers
+set relativenumber                 "relative line numbers
 set mouse=                        "dont use the mouse
 set smartindent
 set smartcase                        "search is case insensitive until you add a capital letter
-set foldmethod=syntax              "code folding
-set textwidth=80                   "format at 80 lines
-set ls=2                           "better status line
-" set clipboard=unnamedplus              "use system clipboard
-" set clipboard=unnamed               "copy to clipboard
+" set textwidth=80                   "format at 80 lines
+" set ls=2                           "better status line
 set hidden                         "allow jumping back and forth between multiple unsaved buffers
-set noshowmode                     "because airline...
+" set noshowmode                     "because airline...
 set visualbell                     "no sounds!
-set ignorecase                     "ignore case when searching
+" set ignorecase                     "ignore case when searching
 set smartcase                      "don't ignore when I specify
 set wildignorecase                 "case insensitive file search
 set backup                         "backups
 set noswapfile
 set backupdir=~/.config/nvim/backup
-set diffopt=vertical               "vertical diff splits
-set updatetime=2000                "a bit faster updatetime
-set shortmess+=c                   "make that mess shorter?
+" set diffopt=vertical               "vertical diff splits
+" set updatetime=2000                "a bit faster updatetime
+" set shortmess+=c                   "make that mess shorter?
 :let mapleader = ' '               "leader is space
 :let maplocalleader = ','          "localleader is comma
 set incsearch                      " Find the next match as we type the search
 set hlsearch                       " Highlight searches by default
 set autoread                        "auto loads changed file, like when changing branches
-se mouse+=a                       "mouse doesn't copy line numbers
+" se mouse+=a                       "mouse doesn't copy line numbers
+set clipboard=unnamed               "copy to clipboard
 "===================================FUNCTIONS===================================
 func! StripTrailingWhitespace()
   let l = line('.')
@@ -117,16 +116,12 @@ let g:coc_global_extensions = [
   \ ]
 "===================================WEB=========================================
 Plug 'mattn/emmet-vim'
-let g:user_emmet_settings = {
-\  'javascript' : {'extends' : 'jsx'},
-\  'javascript.jsx' : {'extends' : 'jsx'},
-\  'typescript' : {'extends' : 'jsx'},
-\  'typescript.tsx' : {'extends' : 'jsx'},
-\}
 Plug 'elzr/vim-json' "Better JSON highlighting
 "==================================HTML/CSS===================================
 Plug 'turbio/bracey.vim' "vscode liveserver for vim
-"==================================MARKDOWN===================================
+"==================================Writing===================================
+Plug 'xolox/vim-notes'
+Plug 'xolox/vim-misc'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  } "Markdownpreview
 " turn on spellcheck automatically for markdown files
 :autocmd BufRead,BufNewFile *.md setlocal spell
@@ -156,8 +151,6 @@ Plug 'mbbill/undotree'
 let g:netrw_banner = 0
 let g:netrw_liststyle = 3
 let g:netrw_winsize = 25
-"for crud-ing files
-Plug 'tpope/vim-eunuch'
 "relative numbers in netrw
 let g:netrw_bufsettings = 'noma nomod nu nobl nowrap ro'
 "====================================FUN========================================
@@ -192,4 +185,3 @@ endif
   "elimitates highlighting with esc, it takes a second
   nnoremap <silent> <Esc> :nohlsearch<Bar>:echo<CR>
   nnoremap <leader>u :UndotreeShow<CR>
-

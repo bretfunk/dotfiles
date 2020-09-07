@@ -80,3 +80,5 @@ source ~/.nvm/nvm.sh
 
 # added by travis gem
 [ -f /Users/bretfunk/.travis/travis.sh ] && source /Users/bretfunk/.travis/travis.sh
+
+eval $(thefuck --alias)
