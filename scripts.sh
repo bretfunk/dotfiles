@@ -7,6 +7,7 @@ ln -s -f ~/dotfiles/bashrc ~/.bashrc
 ln -s -f ~/dotfiles/zshrc ~/.zshrc
 ln -s -f ~/dotfiles/gitignore ~/.gitignore
 ln -s -f ~/dotfiles/hammerspoon.lua ~/.hammerspoon/init.lua
+ln -s -f ~/dotfiles/karabiner.json ~/.config/karabiner/karabiner.json
 
 # only push to github if main computer
 COMP=$(scutil --get ComputerName)
