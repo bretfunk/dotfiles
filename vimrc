@@ -93,8 +93,8 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 "==================================NAVIGATION===================================
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'ggreer/the_silver_searcher'
 "==================================AUTOCOMPLETION===============================
 Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release'}
@@ -122,7 +122,7 @@ Plug 'turbio/bracey.vim' "vscode liveserver for vim
 "==================================Writing===================================
 Plug 'xolox/vim-notes'
 Plug 'xolox/vim-misc'
-Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  } "Markdownpreview
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
 " turn on spellcheck automatically for markdown files
 :autocmd BufRead,BufNewFile *.md setlocal spell
 "==================================JAVASCRIPT===================================
@@ -153,14 +153,12 @@ let g:netrw_liststyle = 3
 let g:netrw_winsize = 25
 "relative numbers in netrw
 let g:netrw_bufsettings = 'noma nomod nu nobl nowrap ro'
-"====================================FUN========================================
+"====================================VIM========================================
 Plug 'ThePrimeagen/vim-be-good'
 "====================================PLUG END========================================
 call plug#end()
-set background=dark
 colorscheme Downpour
-filetype plugin indent on
-syntax on
+set background=dark
 "===================================FAST SEARCH=================================
 if executable('ag')
   set grepprg=ag\ --nogroup\ --nocolor\ --ignore-case\ --column
