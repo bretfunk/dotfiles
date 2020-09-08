@@ -1,0 +1,7 @@
+Script started on Tue Sep  8 18:07:30 2020
+dyld: Library not loaded: /usr/local/opt/icu4c/lib/libicui18n.64.dylib
+  Referenced from: /usr/local/opt/node@8/bin/node
+  Reason: image not found
+nvm is not compatible with the npm config "prefix" option: currently set to ""
+Run `npm config delete prefix` or `nvm use --delete-prefix v12.12.0 --silent` to unset it.
+[1m[7m%[27m[1m[0m                                                                                                                      ]2;bretfunk@tomcat: ~/dotfiles]1;~/dotfiles[0m[27m[24m[J[38;5;117m~/dotfiles[00m[38;5;012m (master [38;5;133m✘[38;5;012m)[38;5;133m[38;5;166m✹[00m[38;5;190m✭[00m [00m[38;5;077mᐅ[00m [K[?1h=[?2004h[4ms[24m[90mcript[39m[4ms[39m[4mc[24m

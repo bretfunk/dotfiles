@@ -6,7 +6,6 @@ set shiftwidth=2                   "2 spaces for tab
 set softtabstop=2                  "2 spaces for tab
 set expandtab                      "no tabs
 set nowrap                         "no softwrap
-" set noshowmode                     "don't show insert in echo area
 set foldlevel=100                   "folds are stupid
 set foldmethod=syntax              "code folding
 set list                           "show tab characters
@@ -16,26 +15,18 @@ set relativenumber                 "relative line numbers
 set mouse=                        "dont use the mouse
 set smartindent
 set smartcase                        "search is case insensitive until you add a capital letter
-" set textwidth=80                   "format at 80 lines
-" set ls=2                           "better status line
 set hidden                         "allow jumping back and forth between multiple unsaved buffers
-" set noshowmode                     "because airline...
 set visualbell                     "no sounds!
-" set ignorecase                     "ignore case when searching
 set smartcase                      "don't ignore when I specify
 set wildignorecase                 "case insensitive file search
 set backup                         "backups
 set noswapfile
 set backupdir=~/.config/nvim/backup
-" set diffopt=vertical               "vertical diff splits
-" set updatetime=2000                "a bit faster updatetime
-" set shortmess+=c                   "make that mess shorter?
 :let mapleader = ' '               "leader is space
 :let maplocalleader = ','          "localleader is comma
 set incsearch                      " Find the next match as we type the search
 set hlsearch                       " Highlight searches by default
 set autoread                        "auto loads changed file, like when changing branches
-" se mouse+=a                       "mouse doesn't copy line numbers
 set clipboard=unnamed               "copy to clipboard
 "===================================FUNCTIONS===================================
 func! StripTrailingWhitespace()
@@ -120,8 +111,7 @@ Plug 'elzr/vim-json' "Better JSON highlighting
 "==================================HTML/CSS===================================
 Plug 'turbio/bracey.vim' "vscode liveserver for vim
 "==================================Writing===================================
-Plug 'xolox/vim-notes'
-Plug 'xolox/vim-misc'
+Plug 'vimwiki/vimwiki'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
 " turn on spellcheck automatically for markdown files
 :autocmd BufRead,BufNewFile *.md setlocal spell
@@ -153,8 +143,6 @@ let g:netrw_liststyle = 3
 let g:netrw_winsize = 25
 "relative numbers in netrw
 let g:netrw_bufsettings = 'noma nomod nu nobl nowrap ro'
-"====================================VIM========================================
-Plug 'ThePrimeagen/vim-be-good'
 "====================================PLUG END========================================
 call plug#end()
 colorscheme Downpour
@@ -165,26 +153,26 @@ if executable('ag')
   set grepformat=%f:%l:%c:%m,%f:%l:%m
 endif
   "==============================KEYBINDINGS=================================
+  "fzf
   nn <leader>f :Files<CR>
+  "coc
   nmap <silent> <leader>ld <Plug>(coc-diagnostic-info)
   nmap <silent> <leader>ln <Plug>(coc-diagnostic-next)
   nmap <silent> <leader>lp <Plug>(coc-diagnostic-prev)
+  nmap <silent> gd <Plug>(coc-definition)
+  nmap <silent> gt <Plug>(coc-type-definition)
+  nmap <silent> gi <Plug>(coc-implementation)
+  nmap <silent> gr <Plug>(coc-references)
   " Do a full-text search with ag in the current project.
   nn <leader>/ :Ag<CR>
-  " <C-]> is the vim command to look up the docs for the symbol
-  " under the cursor, i remap this to g(oto)d(efinition)
-  nn gd <C-]>
-  " Super fast pane navigation, press ctrl plus the (hjkl)
-  " direction of the pane you want to go to.
+  "press ctrl plus the (hjkl) direction of the pane you want to go to.
   nn <C-j> <C-W>j
   nn <C-k> <C-W>k
   nn <C-h> <C-W>h
   nn <C-l> <C-W>l
-  "elimitates highlighting with esc, it takes a second
-  nnoremap <silent> <Esc> :nohlsearch<Bar>:echo<CR>
+  "undoo tree
   nnoremap <leader>u :UndotreeShow<CR>
-  "vim fugitive
-  "left
+  "vim fugitive select left
   nmap<leader>gl :diffget //2<CR>
-  "right
+  "vim fugitive select right
   nmap<leader>gr :diffget //3<CR>
