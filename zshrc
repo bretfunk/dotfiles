@@ -26,7 +26,7 @@ alias 'yul=yarn upgrade lapis && yarn start'
 alias 'v=nvim'
 
 #scripts
-alias 'scripts=cd ~/dotfiles && sh scripts.sh'
+alias 'ud=cd ~/dotfiles && sh scripts.sh'
 
 #dotfiles
 alias 'dotfiles=cd ~/dotfiles && ls'
