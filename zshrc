@@ -1,9 +1,6 @@
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-#secret
-source "./secret"
-
  # respect gitignore
 export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
@@ -47,7 +44,7 @@ alias yb='yarn build && git add dist && git add -p'
 #github
 # seeing which command I like better
 alias ghnp='git brws --repo NavitasLease/prompt'
-brws() { git brws --repo "NavitasLease/$1"}
+gh() { git brws --repo "NavitasLease/$1"}
 
 #tmate
 alias tsession='tmate display -p '#{tmate_ssh}''
@@ -91,3 +88,6 @@ source ~/.nvm/nvm.sh
 [ -f /Users/bretfunk/.travis/travis.sh ] && source /Users/bretfunk/.travis/travis.sh
 
 eval $(thefuck --alias)
+
+#secret
+source "./secret"

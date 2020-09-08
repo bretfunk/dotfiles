@@ -183,3 +183,8 @@ endif
   "elimitates highlighting with esc, it takes a second
   nnoremap <silent> <Esc> :nohlsearch<Bar>:echo<CR>
   nnoremap <leader>u :UndotreeShow<CR>
+  "vim fugitive
+  "left
+  nmap<leader>gl :diffget //2<CR>
+  "right
+  nmap<leader>gr :diffget //3<CR>
