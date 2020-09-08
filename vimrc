@@ -113,8 +113,10 @@ Plug 'turbio/bracey.vim' "vscode liveserver for vim
 "==================================Writing===================================
 Plug 'vimwiki/vimwiki'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
-" turn on spellcheck automatically for markdown files
-:autocmd BufRead,BufNewFile *.md setlocal spell
+:autocmd BufRead,BufNewFile *.md setlocal spell "auto markdown spellcheck
+"vimwiki uses markdown
+let g:vimwiki_list = [{'path': '~/vimwiki/',
+                      \ 'syntax': 'markdown', 'ext': '.md'}]
 "==================================JAVASCRIPT===================================
 Plug 'pangloss/vim-javascript', {'for': ['javascript', 'javascript.jsx']}
 Plug 'mxw/vim-jsx', {'for': ['javascript', 'javascript.jsx']}
@@ -152,27 +154,27 @@ if executable('ag')
   set grepprg=ag\ --nogroup\ --nocolor\ --ignore-case\ --column
   set grepformat=%f:%l:%c:%m,%f:%l:%m
 endif
-  "==============================KEYBINDINGS=================================
-  "fzf
-  nn <leader>f :Files<CR>
-  "coc
-  nmap <silent> <leader>ld <Plug>(coc-diagnostic-info)
-  nmap <silent> <leader>ln <Plug>(coc-diagnostic-next)
-  nmap <silent> <leader>lp <Plug>(coc-diagnostic-prev)
-  nmap <silent> gd <Plug>(coc-definition)
-  nmap <silent> gt <Plug>(coc-type-definition)
-  nmap <silent> gi <Plug>(coc-implementation)
-  nmap <silent> gr <Plug>(coc-references)
-  " Do a full-text search with ag in the current project.
-  nn <leader>/ :Ag<CR>
-  "press ctrl plus the (hjkl) direction of the pane you want to go to.
-  nn <C-j> <C-W>j
-  nn <C-k> <C-W>k
-  nn <C-h> <C-W>h
-  nn <C-l> <C-W>l
-  "undoo tree
-  nnoremap <leader>u :UndotreeShow<CR>
-  "vim fugitive select left
-  nmap<leader>gl :diffget //2<CR>
-  "vim fugitive select right
-  nmap<leader>gr :diffget //3<CR>
+"==============================KEYBINDINGS=================================
+"fzf
+nn <leader>f :Files<CR>
+"coc
+nmap <silent> <leader>ld <Plug>(coc-diagnostic-info)
+nmap <silent> <leader>ln <Plug>(coc-diagnostic-next)
+nmap <silent> <leader>lp <Plug>(coc-diagnostic-prev)
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gt <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+" Do a full-text search with ag in the current project.
+nn <leader>/ :Ag<CR>
+"press ctrl plus the (hjkl) direction of the pane you want to go to.
+nn <C-j> <C-W>j
+nn <C-k> <C-W>k
+nn <C-h> <C-W>h
+nn <C-l> <C-W>l
+"undoo tree
+nnoremap <leader>u :UndotreeShow<CR>
+"vim fugitive select left
+nmap<leader>gl :diffget //2<CR>
+"vim fugitive select right
+nmap<leader>gr :diffget //3<CR>
