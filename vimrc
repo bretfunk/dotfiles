@@ -6,28 +6,26 @@ set shiftwidth=2                   "2 spaces for tab
 set softtabstop=2                  "2 spaces for tab
 set expandtab                      "no tabs
 set nowrap                         "no softwrap
-set foldlevel=100                   "folds are stupid
-set foldmethod=syntax              "code folding
+set nofoldenable                   "no code folding
 set list                           "show tab characters
-set timeoutlen=1000 ttimeoutlen=-1 "better timeouts
+" set timeoutlen=1000 ttimeoutlen=-1 "better timeouts
 set number                         "line numbers
 set relativenumber                 "relative line numbers
 set mouse=                        "dont use the mouse
-set smartindent
+set smartindent                   "smart indent
 set smartcase                        "search is case insensitive until you add a capital letter
-set hidden                         "allow jumping back and forth between multiple unsaved buffers
+" set hidden                         "allow jumping back and forth between multiple unsaved buffers
 set visualbell                     "no sounds!
 set smartcase                      "don't ignore when I specify
 set wildignorecase                 "case insensitive file search
+set incsearch                      " Find the next match as we type the search
+" set hlsearch                       " Highlight searches by default
+set autoread                        "auto loads changed file, like when changing branches
+set clipboard=unnamed               "copy to clipboard
 set backup                         "backups
 set noswapfile
 set backupdir=~/.config/nvim/backup
-:let mapleader = ' '               "leader is space
-:let maplocalleader = ','          "localleader is comma
-set incsearch                      " Find the next match as we type the search
-set hlsearch                       " Highlight searches by default
-set autoread                        "auto loads changed file, like when changing branches
-set clipboard=unnamed               "copy to clipboard
+let mapleader = ' '               "leader is space
 "===================================FUNCTIONS===================================
 func! StripTrailingWhitespace()
   let l = line('.')
@@ -58,7 +56,7 @@ function! Check_back_space() abort
   echom(getline('.')[col - 1])
   return !col || getline('.')[col - 1]  =~ '\s'
 endfunction
-"
+
 " coc tab completion
 inoremap <silent><expr> <TAB>
   \ pumvisible() ? "\<C-n>" :
@@ -83,6 +81,9 @@ augroup END
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
+Plug 'tpope/vim-vinegar'
+let g:netrw_bufsettings = 'noma nomod nu nobl nowrap ro'
+Plug 'mbbill/undotree'
 "==================================NAVIGATION===================================
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -128,7 +129,6 @@ Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
 au! FileType typescript set foldmethod=indent
 au! FileType typescript.tsx set foldmethod=indent
-
 "==================================SVELTE===================================
 Plug 'leafOfTree/vim-svelte-plugin'
 au! BufNewFile,BufRead *.svelte set ft=html
@@ -137,14 +137,6 @@ Plug 'elixir-lang/vim-elixir'
 Plug 'mhinz/vim-mix-format'
 au BufEnter *.leex set filetype=eelixir
 let g:mix_format_on_save = 1
-"====================================ETC========================================
-Plug 'mbbill/undotree'
-"netrw
-let g:netrw_banner = 0
-let g:netrw_liststyle = 3
-let g:netrw_winsize = 25
-"relative numbers in netrw
-let g:netrw_bufsettings = 'noma nomod nu nobl nowrap ro'
 "====================================PLUG END========================================
 call plug#end()
 colorscheme Downpour

@@ -61,8 +61,11 @@ eval $(thefuck --alias fuck)
 export PATH="/usr/local/opt/node@8/bin:$PATH"
 export PATH="/usr/local/opt/python3/bin:$PATH"
 
+#secret
+source "./dotfiles/secret"
+
 #Path to your oh-my-zsh installation.
-export ZSH="/Users/bretfunk/.oh-my-zsh"
+export ZSH="./.oh-my-zsh"
 
 ZSH_THEME="muse"
 
@@ -88,6 +91,3 @@ source ~/.nvm/nvm.sh
 [ -f /Users/bretfunk/.travis/travis.sh ] && source /Users/bretfunk/.travis/travis.sh
 
 eval $(thefuck --alias)
-
-#secret
-source "./secret"
