@@ -8,18 +8,16 @@ set expandtab                      "no tabs
 set nowrap                         "no softwrap
 set nofoldenable                   "no code folding
 set list                           "show tab characters
-" set timeoutlen=1000 ttimeoutlen=-1 "better timeouts
 set number                         "line numbers
 set relativenumber                 "relative line numbers
 set mouse=                        "dont use the mouse
 set smartindent                   "smart indent
-set smartcase                        "search is case insensitive until you add a capital letter
-" set hidden                         "allow jumping back and forth between multiple unsaved buffers
+set hidden                         "allow jumping back and forth between multiple unsaved buffers
 set visualbell                     "no sounds!
-set smartcase                      "don't ignore when I specify
+set ignorecase                      "search is not case sensitive
+set smartcase                        "search is case insensitive until you add a capital letter
 set wildignorecase                 "case insensitive file search
 set incsearch                      " Find the next match as we type the search
-" set hlsearch                       " Highlight searches by default
 set autoread                        "auto loads changed file, like when changing branches
 set clipboard=unnamed               "copy to clipboard
 set backup                         "backups
@@ -164,7 +162,7 @@ nn <C-j> <C-W>j
 nn <C-k> <C-W>k
 nn <C-h> <C-W>h
 nn <C-l> <C-W>l
-"undoo tree
+"undo tree
 nnoremap <leader>u :UndotreeShow<CR>
 "vim fugitive select left
 nmap<leader>gl :diffget //2<CR>
