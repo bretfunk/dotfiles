@@ -62,11 +62,11 @@ export PATH="/usr/local/opt/node@8/bin:$PATH"
 export PATH="/usr/local/opt/python3/bin:$PATH"
 
 #secret
-source "./dotfiles/secret"
+# source "~/dotfiles/secret"
+source ~/dotfiles/secret
 
 #Path to your oh-my-zsh installation.
-export ZSH="./.oh-my-zsh"
-
+export ZSH="/Users/$USER/.oh-my-zsh"
 ZSH_THEME="muse"
 
 plugins=(git
