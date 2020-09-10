@@ -6,6 +6,7 @@
 " ██║     ╚██████╔╝██║ ╚████║██║  ██╗███████║     ╚████╔╝ ██║██║ ╚═╝ ██║██║  ██║╚██████╗
 " ╚═╝      ╚═════╝ ╚═╝  ╚═══╝╚═╝  ╚═╝╚══════╝      ╚═══╝  ╚═╝╚═╝     ╚═╝╚═╝  ╚═╝ ╚═════╝
 
+" "Just as a Jedi must build their own lightsaber, you must build your own vimrc" - Mike Dao
 "==================================SETTINGS=========================================
   let mapleader = ' '                    "leader is space
 set t_co=256                             "256 colors
@@ -49,7 +50,7 @@ func! OpenOrCreateTerminal()
   endif
 endfunc
 
-" Conditionally load vim plugins.
+" Conditionally load vim plugins
 function! Cond(cond, ...)
   let opts = get(a:000, 0, {})
   return a:cond ? opts : extend(opts, {'on': [], 'for': [] })
@@ -129,7 +130,6 @@ Plug 'pangloss/vim-javascript', {'for': ['javascript', 'javascript.jsx']}
 Plug 'mxw/vim-jsx', {'for': ['javascript', 'javascript.jsx']}
 let g:jsx_ext_required = 0  "Always use jsx syntax
 let g:vue_disable_pre_processors=1
-
 "==================================TYPESCRIPT======================================
 Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
