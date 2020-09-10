@@ -1,30 +1,38 @@
-"===================================SETTINGS========================================
-set t_co=256                       "256 colors
-set termguicolors                  "true color
-set tabstop=2                      "2 spaces for tab
-set shiftwidth=2                   "2 spaces for tab
-set softtabstop=2                  "2 spaces for tab
-set expandtab                      "no tabs
-set nowrap                         "no softwrap
-set nofoldenable                   "no code folding
-set list                           "show tab characters
-set number                         "line numbers
-set relativenumber                 "relative line numbers
-set mouse=                        "dont use the mouse
-set smartindent                   "smart indent
-set hidden                         "allow jumping back and forth between multiple unsaved buffers
-set visualbell                     "no sounds!
-set ignorecase                      "search is not case sensitive
-set smartcase                        "search is case insensitive until you add a capital letter
-set wildignorecase                 "case insensitive file search
-set incsearch                      " Find the next match as we type the search
-set autoread                        "auto loads changed file, like when changing branches
-set clipboard=unnamed               "copy to clipboard
-set backup                         "backups
+
+" ███████╗██╗   ██╗███╗   ██╗██╗  ██╗███████╗    ██╗   ██╗██╗███╗   ███╗██████╗  ██████╗
+" ██╔════╝██║   ██║████╗  ██║██║ ██╔╝██╔════╝    ██║   ██║██║████╗ ████║██╔══██╗██╔════╝
+" █████╗  ██║   ██║██╔██╗ ██║█████╔╝ ███████╗    ██║   ██║██║██╔████╔██║██████╔╝██║
+" ██╔══╝  ██║   ██║██║╚██╗██║██╔═██╗ ╚════██║    ╚██╗ ██╔╝██║██║╚██╔╝██║██╔══██╗██║
+" ██║     ╚██████╔╝██║ ╚████║██║  ██╗███████║     ╚████╔╝ ██║██║ ╚═╝ ██║██║  ██║╚██████╗
+" ╚═╝      ╚═════╝ ╚═╝  ╚═══╝╚═╝  ╚═╝╚══════╝      ╚═══╝  ╚═╝╚═╝     ╚═╝╚═╝  ╚═╝ ╚═════╝
+
+"==================================SETTINGS=========================================
+  let mapleader = ' '                    "leader is space
+set t_co=256                             "256 colors
+set termguicolors                        "true color
+set expandtab                            "no tabs
+set tabstop=2                            "2 spaces for tab
+set shiftwidth=2                         "2 spaces for tab
+set softtabstop=2                        "2 spaces for tab
+set list                                 "show tab characters
+set nowrap                               "no softwrap
+set nofoldenable                         "no code folding
+set number                               "line numbers
+set relativenumber                       "relative line numbers
+set mouse=                               "dont use the mouse
+set smartindent                          "smart indent
+set hidden                               "allow jumping back and forth between multiple unsaved buffers
+set visualbell                           "no sounds!
+set ignorecase                           "search is not case sensitive
+set smartcase                            "search is case insensitive until you add a capital letter
+set wildignorecase                       "case insensitive file search
+set incsearch                            " Find the next match as we type the search
+set autoread                             "auto loads changed file, like when changing branches
+set clipboard=unnamed                    "copy to clipboard
+set backup                               "backups
 set noswapfile
 set backupdir=~/.config/nvim/backup
-let mapleader = ' '               "leader is space
-"===================================FUNCTIONS===================================
+"==================================FUNCTIONS=======================================
 func! StripTrailingWhitespace()
   let l = line('.')
   let c = col('.')
@@ -60,9 +68,9 @@ inoremap <silent><expr> <TAB>
   \ pumvisible() ? "\<C-n>" :
   \ Check_back_space() ? "\<TAB>" :
   \ coc#refresh()
-"==================================PLUGINS===================================
+"==================================PLUGINS=========================================
 call plug#begin('~/.vim/plugged')
-"==================================COSMETIC===============================
+"==================================COSMETIC========================================
 Plug 'rainglow/vim'
 "rainglow recommended settings
 set linespace=3
@@ -75,18 +83,18 @@ augroup myColors
     autocmd!
     autocmd ColorScheme * highlight SignColumn guibg=ColorColumn
 augroup END
-"==================================UTILITY===============================
+"==================================UTILITY=========================================
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-vinegar'
-let g:netrw_bufsettings = 'noma nomod nu nobl nowrap ro'
+let g:netrw_bufsettings = 'noma nomod nu nobl nowrap ro' "netrw line numbers
 Plug 'mbbill/undotree'
-"==================================NAVIGATION===================================
+"==================================NAVIGATION======================================
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'ggreer/the_silver_searcher'
-"==================================AUTOCOMPLETION===============================
+"==================================AUTOCOMPLETION==================================
 Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release'}
 let g:coc_global_extensions = [
   \ 'coc-snippets',
@@ -104,47 +112,47 @@ let g:coc_global_extensions = [
   \ 'coc-tailwindcss',
   \ 'coc-elixir'
   \ ]
-"===================================WEB=========================================
+"===================================WEB============================================
 Plug 'mattn/emmet-vim'
 Plug 'elzr/vim-json' "Better JSON highlighting
-"==================================HTML/CSS===================================
+"==================================HTML/CSS========================================
 Plug 'turbio/bracey.vim' "vscode liveserver for vim
-"==================================Writing===================================
+"==================================WRITING=========================================
 Plug 'vimwiki/vimwiki'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
 :autocmd BufRead,BufNewFile *.md setlocal spell "auto markdown spellcheck
 "vimwiki uses markdown
 let g:vimwiki_list = [{'path': '~/vimwiki/',
                       \ 'syntax': 'markdown', 'ext': '.md'}]
-"==================================JAVASCRIPT===================================
+"==================================JAVASCRIPT======================================
 Plug 'pangloss/vim-javascript', {'for': ['javascript', 'javascript.jsx']}
 Plug 'mxw/vim-jsx', {'for': ['javascript', 'javascript.jsx']}
 let g:jsx_ext_required = 0  "Always use jsx syntax
 let g:vue_disable_pre_processors=1
 
-"==================================TYPESCRIPT===================================
+"==================================TYPESCRIPT======================================
 Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
 au! FileType typescript set foldmethod=indent
 au! FileType typescript.tsx set foldmethod=indent
-"==================================SVELTE===================================
+"==================================SVELTE==========================================
 Plug 'leafOfTree/vim-svelte-plugin'
 au! BufNewFile,BufRead *.svelte set ft=html
-"==================================ELIXIR=======================================
+"==================================ELIXIR==========================================
 Plug 'elixir-lang/vim-elixir'
 Plug 'mhinz/vim-mix-format'
 au BufEnter *.leex set filetype=eelixir
 let g:mix_format_on_save = 1
-"====================================PLUG END========================================
+"==================================PLUG END========================================
 call plug#end()
 colorscheme Downpour
 set background=dark
-"===================================FAST SEARCH=================================
+"==================================FAST SEARCH=====================================
 if executable('ag')
   set grepprg=ag\ --nogroup\ --nocolor\ --ignore-case\ --column
   set grepformat=%f:%l:%c:%m,%f:%l:%m
 endif
-"==============================KEYBINDINGS=================================
+"==================================KEYBINDINGS=====================================
 "fzf
 nn <leader>f :Files<CR>
 "coc
@@ -155,16 +163,16 @@ nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gt <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
-" Do a full-text search with ag in the current project.
+" Do a full-text search with ag in the current project
 nn <leader>/ :Ag<CR>
-"press ctrl plus the (hjkl) direction of the pane you want to go to.
+"better split movements
 nn <C-j> <C-W>j
 nn <C-k> <C-W>k
 nn <C-h> <C-W>h
 nn <C-l> <C-W>l
 "undo tree
 nnoremap <leader>u :UndotreeShow<CR>
-"vim fugitive select left
-nmap<leader>gl :diffget //2<CR>
-"vim fugitive select right
-nmap<leader>gr :diffget //3<CR>
+"vim fugitive merge left
+nmap<leader>ml :diffget //2<CR>
+"vim fugitive merge right
+nmap<leader>mr :diffget //3<CR>
