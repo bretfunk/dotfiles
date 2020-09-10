@@ -8,7 +8,7 @@
 
 " "Just as a Jedi must build their own lightsaber, you must build your own vimrc" - Mike Dao
 "==================================SETTINGS=========================================
-  let mapleader = ' '                    "leader is space
+let mapleader = ' '                      "leader is space
 set t_co=256                             "256 colors
 set termguicolors                        "true color
 set expandtab                            "no tabs
