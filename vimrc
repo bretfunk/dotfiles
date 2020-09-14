@@ -11,7 +11,7 @@
 let mapleader = ' '                      "leader is space
 set t_co=256                             "256 colors
 set termguicolors                        "true color
-set signcolumn=number
+set signcolumn=number                    "make gutter just the numbers, requires nvim 0.5
 set expandtab                            "no tabs
 set tabstop=2                            "2 spaces for tab
 set shiftwidth=2                         "2 spaces for tab
@@ -92,24 +92,9 @@ Plug 'ggreer/the_silver_searcher'
 "==================================AUTOCOMPLETION==================================
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 let g:coc_global_extensions = [
-  \ 'coc-snippets',
-  \ 'coc-pairs',
-  \ 'coc-prettier', 
-  \ 'coc-json', 
-  \ 'coc-svelte',
-  \ 'coc-emmet',
-  \ 'coc-git',
-  \ 'coc-html',
-  \ 'coc-markdownlint',
-  \ 'coc-tailwindcss',
-  \ 'coc-elixir',
-  \ 'coc-css',
-  \ 'coc-tsserver',
-  \ 'coc-eslint', 
-  \ 'coc-sql',
-  \ 'coc-calc',
-  \ 'coc-erlang_ls',
-  \ 'coc-todolist'
+  \ 'coc-elixir', 'coc-erlang_ls', 'coc-svelte', 'coc-css', 'coc-tailwindcss',
+  \ 'coc-tsserver', 'coc-eslint', 'coc-html', 'coc-prettier', 'coc-json', 'coc-snippets',
+  \ 'coc-emmet', 'coc-git', 'coc-markdownlint', 'coc-calc', 'coc-todolist', 'coc-pairs',
   \ ]
 "===================================FUN============================================
 Plug 'ThePrimeagen/vim-be-good'
@@ -129,7 +114,6 @@ let g:vimwiki_list = [{'path': '~/vimwiki/',
 Plug 'pangloss/vim-javascript', {'for': ['javascript', 'javascript.jsx']}
 Plug 'mxw/vim-jsx', {'for': ['javascript', 'javascript.jsx']}
 let g:jsx_ext_required = 0  "Always use jsx syntax
-let g:vue_disable_pre_processors=1
 "==================================TYPESCRIPT======================================
 Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
