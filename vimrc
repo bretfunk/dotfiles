@@ -11,6 +11,7 @@
 let mapleader = ' '                      "leader is space
 set t_co=256                             "256 colors
 set termguicolors                        "true color
+set signcolumn=number
 set expandtab                            "no tabs
 set tabstop=2                            "2 spaces for tab
 set shiftwidth=2                         "2 spaces for tab
@@ -20,13 +21,11 @@ set nowrap                               "no softwrap
 set nofoldenable                         "no code folding
 set number                               "line numbers
 set relativenumber                       "relative line numbers
-set mouse=                               "dont use the mouse
 set smartindent                          "smart indent
 set hidden                               "allow jumping back and forth between multiple unsaved buffers
 set visualbell                           "no sounds!
 set ignorecase                           "search is not case sensitive
 set smartcase                            "search is case insensitive until you add a capital letter
-set wildignorecase                       "case insensitive file search
 set incsearch                            " Find the next match as we type the search
 set autoread                             "auto loads changed file, like when changing branches
 set backup                               "backups
@@ -78,11 +77,6 @@ set guifont=Fira\ Code:h12
 set cursorline
 Plug 'luochen1990/rainbow'
 Plug 'vim-airline/vim-airline'
-" makes gutter (SignColumn) the same color as the background
-augroup myColors
-    autocmd!
-    autocmd ColorScheme * highlight SignColumn guibg=ColorColumn
-augroup END
 "==================================UTILITY=========================================
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
@@ -100,8 +94,6 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 let g:coc_global_extensions = [
   \ 'coc-snippets',
   \ 'coc-pairs',
-  \ 'coc-tsserver',
-  \ 'coc-eslint', 
   \ 'coc-prettier', 
   \ 'coc-json', 
   \ 'coc-svelte',
@@ -109,10 +101,18 @@ let g:coc_global_extensions = [
   \ 'coc-git',
   \ 'coc-html',
   \ 'coc-markdownlint',
-  \ 'coc-tsserver',
   \ 'coc-tailwindcss',
-  \ 'coc-elixir'
+  \ 'coc-elixir',
+  \ 'coc-css',
+  \ 'coc-tsserver',
+  \ 'coc-eslint', 
+  \ 'coc-sql',
+  \ 'coc-calc',
+  \ 'coc-erlang_ls',
+  \ 'coc-todolist'
   \ ]
+"===================================FUN============================================
+Plug 'ThePrimeagen/vim-be-good'
 "===================================WEB============================================
 Plug 'mattn/emmet-vim'
 Plug 'elzr/vim-json' "Better JSON highlighting
