@@ -29,7 +29,6 @@ set smartcase                            "search is case insensitive until you a
 set wildignorecase                       "case insensitive file search
 set incsearch                            " Find the next match as we type the search
 set autoread                             "auto loads changed file, like when changing branches
-set clipboard=unnamed                    "copy to clipboard
 set backup                               "backups
 set noswapfile
 set backupdir=~/.config/nvim/backup
@@ -89,6 +88,7 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-vinegar'
+Plug 'tpope/vim-abolish'
 let g:netrw_bufsettings = 'noma nomod nu nobl nowrap ro' "netrw line numbers
 Plug 'mbbill/undotree'
 "==================================NAVIGATION======================================
@@ -96,7 +96,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'ggreer/the_silver_searcher'
 "==================================AUTOCOMPLETION==================================
-Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release'}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 let g:coc_global_extensions = [
   \ 'coc-snippets',
   \ 'coc-pairs',
