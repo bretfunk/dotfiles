@@ -78,14 +78,13 @@ source $ZSH/oh-my-zsh.sh
 # User configuration
 # no idea what this does but it was in the instructions so keeping it in here
  export MANPATH="/usr/local/man:$MANPATH"
- export PATH="/usr/local/opt/node@8/bin:$PATH"
+ export PATH="/usr/local/opt/node/bin:$PATH"
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
 
 # Add Node Version Manager
 source ~/.nvm/nvm.sh
-
 
 # added by travis gem
 [ -f /Users/bretfunk/.travis/travis.sh ] && source /Users/bretfunk/.travis/travis.sh

@@ -93,10 +93,9 @@ Plug 'ggreer/the_silver_searcher'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 let g:coc_global_extensions = [
   \ 'coc-elixir', 'coc-erlang_ls', 'coc-svelte', 'coc-css', 'coc-tailwindcss',
-  \ 'coc-tsserver', 'coc-eslint', 'coc-html', 'coc-prettier', 'coc-json', 'coc-snippets',
-  \ 'coc-emmet', 'coc-git', 'coc-markdownlint', 'coc-calc', 'coc-todolist', 'coc-pairs',
+  \ 'coc-tsserver', 'coc-eslint', 'coc-html', 'coc-prettier', 'coc-snippets',
   \ ]
-"===================================FUN============================================
+"===================================VIM============================================
 Plug 'ThePrimeagen/vim-be-good'
 "===================================WEB============================================
 Plug 'mattn/emmet-vim'
@@ -105,11 +104,15 @@ Plug 'elzr/vim-json' "Better JSON highlighting
 Plug 'turbio/bracey.vim' "vscode liveserver for vim
 "==================================WRITING=========================================
 Plug 'vimwiki/vimwiki'
-Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
-:autocmd BufRead,BufNewFile *.md setlocal spell "auto markdown spellcheck
+"vimwiki settings
+set nocompatible
+filetype plugin on
+syntax on
 "vimwiki uses markdown
 let g:vimwiki_list = [{'path': '~/vimwiki/',
                       \ 'syntax': 'markdown', 'ext': '.md'}]
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
+:autocmd BufRead,BufNewFile *.md setlocal spell "auto markdown spellcheck
 "==================================JAVASCRIPT======================================
 Plug 'pangloss/vim-javascript', {'for': ['javascript', 'javascript.jsx']}
 Plug 'mxw/vim-jsx', {'for': ['javascript', 'javascript.jsx']}
