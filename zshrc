@@ -1,5 +1,10 @@
 # fzf
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+#bash autocompletion
+if [ -f /sw/etc/bash_completion ]; then
+  . /sw/etc/bash_completion
+fi
 
  # respect gitignore
 export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
@@ -57,12 +62,7 @@ alias ls='ls -F -G'
 #thefuck CLI helper
 eval $(thefuck --alias fuck)
 
-# node
-export PATH="/usr/local/opt/node@8/bin:$PATH"
-export PATH="/usr/local/opt/python3/bin:$PATH"
-
 #secret
-# source "~/dotfiles/secret"
 source ~/dotfiles/secret
 
 #Path to your oh-my-zsh installation.
@@ -75,15 +75,7 @@ zsh-autosuggestions
 )
 source $ZSH/oh-my-zsh.sh
 
-# User configuration
-# no idea what this does but it was in the instructions so keeping it in here
- export MANPATH="/usr/local/man:$MANPATH"
- export PATH="/usr/local/opt/node/bin:$PATH"
-
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
-
-# Add Node Version Manager
+#node version manager
 source ~/.nvm/nvm.sh
 
 # added by travis gem
