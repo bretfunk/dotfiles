@@ -79,6 +79,7 @@ Plug 'luochen1990/rainbow'
 Plug 'vim-airline/vim-airline'
 "==================================UTILITY=========================================
 Plug 'tpope/vim-commentary'
+Plug 'preservim/nerdcommenter'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-vinegar'
@@ -88,9 +89,12 @@ Plug 'mbbill/undotree'
 "==================================NAVIGATION======================================
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+"respect gitignore
+let $FZF_DEFAULT_COMMAND = 'ag -g ""'
 Plug 'ggreer/the_silver_searcher'
 "==================================AUTOCOMPLETION==================================
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'elixir-lsp/coc-elixir', {'do': 'yarn install && yarn prepack'}
 let g:coc_global_extensions = [
   \ 'coc-elixir', 'coc-erlang_ls', 'coc-svelte', 'coc-css', 'coc-tailwindcss',
   \ 'coc-tsserver', 'coc-eslint', 'coc-html', 'coc-prettier', 'coc-snippets',
@@ -115,7 +119,9 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
 :autocmd BufRead,BufNewFile *.md setlocal spell "auto markdown spellcheck
 "==================================JAVASCRIPT======================================
 Plug 'pangloss/vim-javascript', {'for': ['javascript', 'javascript.jsx']}
-Plug 'mxw/vim-jsx', {'for': ['javascript', 'javascript.jsx']}
+" Plug 'mxw/vim-jsx', {'for': ['javascript', 'javascript.jsx']}
+Plug 'yuezk/vim-js'
+Plug 'maxmellon/vim-jsx-pretty'
 let g:jsx_ext_required = 0  "Always use jsx syntax
 "==================================TYPESCRIPT======================================
 Plug 'leafgarland/typescript-vim'
@@ -163,3 +169,4 @@ nnoremap <leader>u :UndotreeShow<CR>
 nmap<leader>ml :diffget //2<CR>
 "vim fugitive merge right
 nmap<leader>mr :diffget //3<CR>
+"TODO add rename

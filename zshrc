@@ -1,12 +1,6 @@
-# fzf
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
- # respect gitignore
-export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
-export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-
 #navigation
 alias 'cdc=cd ~/Documents/code && ls'
+alias 'cdu=cd ~/Documents/code/ucbi && ls'
 alias 'cdn=cd ~/Documents/code/navitas && ls'
 alias 'cdnn=cd ~/Documents/code/navitas/navitex && ls'
 alias 'cdnb=cd ~/Documents/code/navitas/broker-portal-frontend && ls'
@@ -36,23 +30,20 @@ alias 'bashrc=nvim ~/dotfiles/bashrc'
 alias 'gitignore=nvim ~/dotfiles/gitignore'
 alias 'coc=nvim ~/dotfiles/coc-settings'
 alias 'notes=cd ~/notes && ls'
+alias 'articles=cd ~/articles && ls'
 
 #git
 alias log='git log --pretty=format:"%h - %an, %ar : %s"'
 alias yb='yarn build && git add dist && git add -p'
 
-#github
-# seeing which command I like better
-alias ghnp='git brws --repo NavitasLease/prompt'
+#github page open from terminal
 gh() { git brws --repo "NavitasLease/$1"}
-
-#tmate
-alias tsession='tmate display -p '#{tmate_ssh}''
 
 #ls with color
 alias ls='ls -F -G'
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+#path
+alias path='$PATH --pretty'
 
 #thefuck CLI helper
 eval $(thefuck --alias fuck)
@@ -73,7 +64,7 @@ source $ZSH/oh-my-zsh.sh
 #node version manager
 source ~/.nvm/nvm.sh
 
+# what does this do?!
 # added by travis gem
 [ -f /Users/bretfunk/.travis/travis.sh ] && source /Users/bretfunk/.travis/travis.sh
-
-eval $(thefuck --alias)
+export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Apple/usr/bin:~/Desktop/nand2tetris/tools
