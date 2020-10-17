@@ -29,6 +29,7 @@ set smartcase                            "search is case insensitive until you a
 set incsearch                            " Find the next match as we type the search
 set autoread                             "auto loads changed file, like when changing branches
 set backup                               "backups
+set shellcmdflag=-ic                     "use bash aliases in command mode
 set noswapfile
 set backupdir=~/.config/nvim/backup
 "==================================FUNCTIONS=======================================

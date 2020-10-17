@@ -1,17 +1,19 @@
 #navigation
 alias 'cdc=cd ~/Documents/code && ls'
-alias 'cdu=cd ~/Documents/code/ucbi && ls'
 alias 'cdn=cd ~/Documents/code/navitas && ls'
 alias 'cdnn=cd ~/Documents/code/navitas/navitex && ls'
 alias 'cdnb=cd ~/Documents/code/navitas/broker-portal-frontend && ls'
 alias 'cdnl=cd ~/Documents/code/navitas/lapis && ls'
 alias 'cdna=cd ~/Documents/code/navitas/ad-hoc && ls'
-alias 'cdnp=cd ~/Documents/code/navitas/oculus-client && ls'
+alias 'cdnp=cd ~/Documents/code/navitas/prompt && ls'
+alias 'cdnv=cd ~/Documents/code/navitas/vendor-portal-api && ls'
 alias 'cdnf=cd ~/Documents/code/navitas/formation && ls'
 alias 'cdnq=cd ~/Documents/code/navitas/quoter-client && ls'
 alias 'cdf=cd ~/Documents/code/fun && ls'
 alias 'cdp=cd ~/Documents/code/projects && ls'
 alias 'cdt=cd ~/Documents/code/tutorials && ls'
+alias 'cdu=cd ~/Documents/code/ucbi && ls'
+alias 'cdud=cd ~/Documents/code/ucbi/ucbi_dev && ls'
 
 #yarn
 alias 'yul=yarn upgrade lapis && yarn start'
@@ -35,6 +37,16 @@ alias 'articles=cd ~/articles && ls'
 #git
 alias log='git log --pretty=format:"%h - %an, %ar : %s"'
 alias yb='yarn build && git add dist && git add -p'
+
+#ghetto dash
+alias 'docs=echo "hex\necto\nex\nphx\nlive\ntailwind\nsurface\n"'
+alias 'hex=open -a "Google Chrome" https://hexdocs.pm/'
+alias 'ecto=open -a "Google Chrome" https://hexdocs.pm/ecto'
+alias 'ex=open -a "Google Chrome" https://hexdocs.pm/elixir'
+alias 'phx=open -a "Google Chrome" https://hexdocs.pm/phoenix'
+alias 'live=open -a "Google Chrome" https://hexdocs.pm/phoenix_live_view'
+alias 'tailwind=open -a "Google Chrome" https://tailwindui.com/components'
+alias 'surface=open -a "Google Chrome" http://surface-demo.msaraiva.io/getting_started'
 
 #github page open from terminal
 gh() { git brws --repo "NavitasLease/$1"}
