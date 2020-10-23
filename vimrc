@@ -30,6 +30,7 @@ set incsearch                            " Find the next match as we type the se
 set autoread                             "auto loads changed file, like when changing branches
 set backup                               "backups
 set shellcmdflag=-ic                     "use bash aliases in command mode
+set diffopt+=vertical                    "git diff is vertical
 set noswapfile
 set backupdir=~/.config/nvim/backup
 "==================================FUNCTIONS=======================================
@@ -82,6 +83,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'tpope/vim-commentary'
 Plug 'preservim/nerdcommenter'
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-vinegar'
 Plug 'tpope/vim-abolish'
