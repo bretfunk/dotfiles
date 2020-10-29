@@ -14,6 +14,7 @@ alias 'cdp=cd ~/Documents/code/projects && ls'
 alias 'cdt=cd ~/Documents/code/tutorials && ls'
 alias 'cdu=cd ~/Documents/code/ucbi && ls'
 alias 'cdud=cd ~/Documents/code/ucbi/ucbi_dev && ls'
+alias 'cdq=cd ~/Documents/code/Q2 && ls'
 
 #yarn
 alias 'yul=yarn upgrade lapis && yarn start'
@@ -33,6 +34,11 @@ alias 'gitignore=nvim ~/dotfiles/gitignore'
 alias 'coc=nvim ~/dotfiles/coc-settings'
 alias 'notes=cd ~/notes && ls'
 alias 'articles=cd ~/articles && ls'
+
+#git shaming
+gs() {
+  echo "USE GIT FUGITIVE YOU FOOL!"
+}
 
 #git
 alias log='git log --pretty=format:"%h - %an, %ar : %s"'
@@ -62,6 +68,9 @@ eval $(thefuck --alias fuck)
 
 #secret
 source ~/dotfiles/secret
+
+#python
+alias python='/usr/local/bin/python3'
 
 #Path to your oh-my-zsh installation.
 export ZSH="/Users/$USER/.oh-my-zsh"

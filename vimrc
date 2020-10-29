@@ -101,6 +101,7 @@ Plug 'elixir-lsp/coc-elixir', {'do': 'yarn install && yarn prepack'}
 let g:coc_global_extensions = [
   \ 'coc-elixir', 'coc-erlang_ls', 'coc-svelte', 'coc-css', 'coc-tailwindcss',
   \ 'coc-tsserver', 'coc-eslint', 'coc-html', 'coc-prettier', 'coc-snippets',
+  \ 'coc-python', 'coc-jedi'
   \ ]
 "===================================VIM============================================
 Plug 'ThePrimeagen/vim-be-good'
@@ -131,11 +132,15 @@ Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
 au! FileType typescript set foldmethod=indent
 au! FileType typescript.tsx set foldmethod=indent
+"==================================PYTHON==========================================
+" Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins', 'for': ['python']}
+" Plug 'Vimjas/vim-python-pep8-indent'
 "==================================SVELTE==========================================
 Plug 'leafOfTree/vim-svelte-plugin'
 au! BufNewFile,BufRead *.svelte set ft=html
 "==================================ELIXIR==========================================
-Plug 'elixir-lang/vim-elixir'
+Plug 'elixir-lang/vim-elixir', { 'for': ['elixir', 'eelixir'] }
+Plug 'tpope/vim-endwise',    { 'for': ['elixir'] }
 Plug 'mhinz/vim-mix-format'
 au BufEnter *.leex set filetype=eelixir
 let g:mix_format_on_save = 1
@@ -159,6 +164,7 @@ nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gt <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
+nnoremap <silent><nowait> <leader>o  :<C-u>CocList outline<cr>
 " Do a full-text search with ag in the current project
 nn <leader>/ :Ag<CR>
 "better split movements
