@@ -81,6 +81,7 @@ Plug 'luochen1990/rainbow'
 Plug 'vim-airline/vim-airline'
 "==================================UTILITY=========================================
 Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-repeat'
 Plug 'preservim/nerdcommenter'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
