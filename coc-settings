@@ -28,5 +28,7 @@
   "eslint.filetypes": ["javascript", "javascriptreact", "typescript",
   "typescriptreact", "svelte"],
   "tsserver.formatOnType": false,
+  "elixirLS.dialyzerEnabled": false 
+  
 }
 
