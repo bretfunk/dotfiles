@@ -136,6 +136,7 @@ au! FileType typescript.tsx set foldmethod=indent
 "==================================PYTHON==========================================
 " Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins', 'for': ['python']}
 " Plug 'Vimjas/vim-python-pep8-indent'
+ " let g:python3_host_prog='/usr/local/bin/python3'
 "==================================SVELTE==========================================
 Plug 'leafOfTree/vim-svelte-plugin'
 au! BufNewFile,BufRead *.svelte set ft=html
