@@ -181,3 +181,4 @@ nmap<leader>ml :diffget //2<CR>
 "vim fugitive merge right
 nmap<leader>mr :diffget //3<CR>
 "TODO add rename
+"
