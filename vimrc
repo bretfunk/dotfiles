@@ -142,13 +142,15 @@ Plug 'leafOfTree/vim-svelte-plugin'
 au! BufNewFile,BufRead *.svelte set ft=html
 "==================================ELIXIR==========================================
 Plug 'elixir-lang/vim-elixir', { 'for': ['elixir', 'eelixir'] }
+Plug 'elixir-lsp/vscode-surface'
 Plug 'tpope/vim-endwise',    { 'for': ['elixir'] }
 Plug 'mhinz/vim-mix-format'
 au BufEnter *.leex set filetype=eelixir
+au BufEnter *.ex set filetype=elixir
 let g:mix_format_on_save = 1
 "==================================PLUG END========================================
 call plug#end()
-colorscheme Downpour
+" colorscheme Boxuk
 set background=dark
 "==================================FAST SEARCH=====================================
 if executable('ag')
