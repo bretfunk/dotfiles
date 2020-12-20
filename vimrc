@@ -102,7 +102,7 @@ Plug 'elixir-lsp/coc-elixir', {'do': 'yarn install && yarn prepack'}
 let g:coc_global_extensions = [
   \ 'coc-elixir', 'coc-erlang_ls', 'coc-svelte', 'coc-css', 'coc-tailwindcss',
   \ 'coc-tsserver', 'coc-eslint', 'coc-html', 'coc-prettier', 'coc-snippets',
-  \ 'coc-python', 'coc-jedi'
+  \ 'coc-python', 'coc-jedi', 'coc-clangd'
   \ ]
 "===================================VIM============================================
 Plug 'ThePrimeagen/vim-be-good'
