@@ -89,3 +89,6 @@ source ~/.nvm/nvm.sh
 # added by travis gem
 [ -f /Users/bretfunk/.travis/travis.sh ] && source /Users/bretfunk/.travis/travis.sh
 export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Apple/usr/bin:~/Desktop/nand2tetris/tools
+
+#starship for the terminal
+eval "$(starship init zsh)"
