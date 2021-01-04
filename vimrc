@@ -184,3 +184,5 @@ nmap<leader>ml :diffget //2<CR>
 nmap<leader>mr :diffget //3<CR>
 "TODO add rename
 "
+"esc removes last highlight
+nnoremap <esc> :noh<return><esc>
