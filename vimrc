@@ -11,7 +11,7 @@
 let mapleader = ' '                      "leader is space
 set t_co=256                             "256 colors
 set termguicolors                        "true color
-set signcolumn=number                    "make gutter just the numbers, requires nvim 0.5
+" set signcolumn=number                    "make gutter just the numbers, requires nvim 0.5
 set expandtab                            "no tabs
 set tabstop=2                            "2 spaces for tab
 set shiftwidth=2                         "2 spaces for tab
@@ -30,7 +30,7 @@ set incsearch                            " Find the next match as we type the se
 set autoread                             "auto loads changed file, like when changing branches
 set backup                               "backups
 set shellcmdflag=-ic                     "use bash aliases in command mode
-set diffopt+=vertical                    "git diff is vertical
+" set diffopt+=vertical                    "git diff is vertical
 set noswapfile
 set backupdir=~/.config/nvim/backup
 "==================================FUNCTIONS=======================================
@@ -69,6 +69,11 @@ inoremap <silent><expr> <TAB>
   \ pumvisible() ? "\<C-n>" :
   \ Check_back_space() ? "\<TAB>" :
   \ coc#refresh()
+"==================================NEOVIM==========================================
+" python2
+let g:python_host_prog  = '/usr/bin/python2'
+" python3
+let g:python3_host_prog = '/opt/homebrew/bin/python3'
 "==================================PLUGINS=========================================
 call plug#begin('~/.vim/plugged')
 "==================================COSMETIC========================================
@@ -99,13 +104,15 @@ Plug 'ggreer/the_silver_searcher'
 "==================================AUTOCOMPLETION==================================
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'elixir-lsp/coc-elixir', {'do': 'yarn install && yarn prepack'}
+Plug 'rodrigore/coc-tailwind-intellisense', {'do': 'npm install'}
+" coc-solargraph is for ruby
 let g:coc_global_extensions = [
   \ 'coc-elixir', 'coc-erlang_ls', 'coc-svelte', 'coc-css', 'coc-tailwindcss',
   \ 'coc-tsserver', 'coc-eslint', 'coc-html', 'coc-prettier', 'coc-snippets',
-  \ 'coc-python', 'coc-jedi', 'coc-clangd'
+  \ 'coc-python', 'coc-clangd', 'coc-rust-analyzer', 'coc-solargraph'
   \ ]
 "===================================VIM============================================
-Plug 'ThePrimeagen/vim-be-good'
+" Plug 'ThePrimeagen/vim-be-good'
 "===================================WEB============================================
 Plug 'mattn/emmet-vim'
 Plug 'elzr/vim-json' "Better JSON highlighting
@@ -122,6 +129,8 @@ let g:vimwiki_list = [{'path': '~/vimwiki/',
                       \ 'syntax': 'markdown', 'ext': '.md'}]
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
 :autocmd BufRead,BufNewFile *.md setlocal spell "auto markdown spellcheck
+"==================================RUST============================================
+
 "==================================JAVASCRIPT======================================
 Plug 'pangloss/vim-javascript', {'for': ['javascript', 'javascript.jsx']}
 " Plug 'mxw/vim-jsx', {'for': ['javascript', 'javascript.jsx']}
@@ -133,10 +142,14 @@ Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
 au! FileType typescript set foldmethod=indent
 au! FileType typescript.tsx set foldmethod=indent
+"==================================SOLIDITY=========================================
+Plug 'TovarishFin/vim-solidity'
 "==================================PYTHON==========================================
 " Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins', 'for': ['python']}
 " Plug 'Vimjas/vim-python-pep8-indent'
- " let g:python3_host_prog='/usr/local/bin/python3'
+" with open(activate_this) as f:
+"    code = compile(f.read(), activate_this, 'exec')
+"    exec(code, dict(__file__=activate_this))
 "==================================SVELTE==========================================
 Plug 'leafOfTree/vim-svelte-plugin'
 au! BufNewFile,BufRead *.svelte set ft=html

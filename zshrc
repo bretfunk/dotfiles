@@ -15,12 +15,16 @@ alias 'cdt=cd ~/Documents/code/tutorials && ls'
 alias 'cdu=cd ~/Documents/code/ucbi && ls'
 alias 'cdud=cd ~/Documents/code/ucbi/ucbi_dev && ls'
 alias 'cdq=cd ~/Documents/code/Q2 && ls'
+alias 'cdrp=cd ~/Documents/code/tutorials/rust/projects && ls'
 
 #yarn
 alias 'yul=yarn upgrade lapis && yarn start'
+#this is for the mac m1 to not get not supported version of node-sass errors
+# alias 'yarn= yarn —target_arch=x64'
 
 #vim
 alias 'v=nvim'
+# alias 'v=vim'
 
 #scripts
 alias 'ud=cd ~/dotfiles && sh scripts.sh'
@@ -63,14 +67,22 @@ alias ls='ls -F -G'
 #path
 alias path='$PATH --pretty'
 
-#thefuck CLI helper
-eval $(thefuck --alias fuck)
-
 #secret
 source ~/dotfiles/secret
 
 #python
-alias python='/usr/local/bin/python3'
+# m1 has diff homebrew path
+#export PYTHONPATH="${PYTHONPATH}:/my/other/path"
+# alias python='/usr/local/bin/python3'
+# alias python='/opt/homebrew/bin/python3'
+# alias python3='/opt/homebrew/bin/python3'
+
+# echo -e 'if command -v pyenv 1>/dev/null 2>&1; then\n  eval "$(pyenv init -)"\nfi' >> ~/.zshrc
+# if command -v pyenv 1>/dev/null 2>&1; then
+#   eval "$(pyenv init -)"
+# fi
+# echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.profile
+# echo 'export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.profile
 
 #Path to your oh-my-zsh installation.
 export ZSH="/Users/$USER/.oh-my-zsh"
@@ -82,13 +94,28 @@ zsh-autosuggestions
 )
 source $ZSH/oh-my-zsh.sh
 
+# added by travis gem
+# [ -f /Users/bretfunk/.travis/travis.sh ] && source /Users/bretfunk/.travis/travis.sh
+#
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Apple/usr/bin:/Users/bretfunk/.local/share/solana/install/active_release/bin:$PATH:/opt/homebrew/opt/openssl@1.1/bin:$PATH"
+
+#rust programming language
+source $HOME/.cargo/env
+
 #node version manager
 source ~/.nvm/nvm.sh
+npm config delete prefix
+nvm use 14.17.0
 
-# what does this do?!
-# added by travis gem
-[ -f /Users/bretfunk/.travis/travis.sh ] && source /Users/bretfunk/.travis/travis.sh
-export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Apple/usr/bin:~/Desktop/nand2tetris/tools
+#******homebrew installs below*****
+eval $(/opt/homebrew/bin/brew shellenv)
 
 #starship for the terminal
 eval "$(starship init zsh)"
+
+#python
+eval "$(pyenv init --path)"
+
+#the fuck
+eval $(thefuck --alias fuck)
+[ -f "/Users/bretfunk/.ghcup/env" ] && source "/Users/bretfunk/.ghcup/env" # ghcup-env
