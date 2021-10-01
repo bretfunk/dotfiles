@@ -99,13 +99,17 @@ source $ZSH/oh-my-zsh.sh
 #
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Apple/usr/bin:/Users/bretfunk/.local/share/solana/install/active_release/bin:$PATH:/opt/homebrew/opt/openssl@1.1/bin:$PATH"
 
+#nvm
+  export NVM_DIR="$HOME/.nvm"
+  [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && . "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+  [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && . "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+
 #rust programming language
 source $HOME/.cargo/env
 
 #node version manager
-source ~/.nvm/nvm.sh
-npm config delete prefix
-nvm use 14.17.0
+# source ~/.nvm/nvm.sh
+# npm config delete prefix
 
 #******homebrew installs below*****
 eval $(/opt/homebrew/bin/brew shellenv)
@@ -115,6 +119,9 @@ eval "$(starship init zsh)"
 
 #python
 eval "$(pyenv init --path)"
+
+#homebew 
+export PATH="/opt/homebrew/bin:$PATH"
 
 #the fuck
 eval $(thefuck --alias fuck)

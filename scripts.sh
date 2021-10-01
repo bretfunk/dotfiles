@@ -11,7 +11,8 @@ ln -s -f ~/dotfiles/karabiner.json ~/.config/karabiner/karabiner.json
 
 # only push to github if main computer
 COMP=$(scutil --get ComputerName)
-if [ "$COMP" == "tomcat" ]
+if [ "$COMP" == "phantom" ]
+#if [ "$COMP" == "tomcat" ]
   then
   git add .
   git commit -m "Updated on $(date)"

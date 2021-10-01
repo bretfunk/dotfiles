@@ -9,6 +9,14 @@
 " "Just as a Jedi must build their own lightsaber, you must build your own vimrc" - Mike Dao
 "==================================SETTINGS=========================================
 let mapleader = ' '                      "leader is space
+" coc.nvim config suggestions
+set hidden                               "allow jumping back and forth between multiple unsaved buffers
+set nobackup                             "some servers have issues with backup files
+set nowritebackup
+set cmdheight=2                          "give more space for display messages
+set updatetime=250                       "longer leads to delays
+set shortmess+=c                         "Dont pass messages to ins-completion-menu
+
 set t_co=256                             "256 colors
 set termguicolors                        "true color
 " set signcolumn=number                    "make gutter just the numbers, requires nvim 0.5
@@ -22,13 +30,11 @@ set nofoldenable                         "no code folding
 set number                               "line numbers
 set relativenumber                       "relative line numbers
 set smartindent                          "smart indent
-set hidden                               "allow jumping back and forth between multiple unsaved buffers
 set visualbell                           "no sounds!
 set ignorecase                           "search is not case sensitive
 set smartcase                            "search is case insensitive until you add a capital letter
 set incsearch                            " Find the next match as we type the search
 set autoread                             "auto loads changed file, like when changing branches
-set backup                               "backups
 set shellcmdflag=-ic                     "use bash aliases in command mode
 " set diffopt+=vertical                    "git diff is vertical
 set noswapfile
@@ -70,10 +76,7 @@ inoremap <silent><expr> <TAB>
   \ Check_back_space() ? "\<TAB>" :
   \ coc#refresh()
 "==================================NEOVIM==========================================
-" python2
-let g:python_host_prog  = '/usr/bin/python2'
-" python3
-let g:python3_host_prog = '/opt/homebrew/bin/python3'
+let g:python3_host_prog  = '/usr/bin/python3'
 "==================================PLUGINS=========================================
 call plug#begin('~/.vim/plugged')
 "==================================COSMETIC========================================
@@ -105,14 +108,11 @@ Plug 'ggreer/the_silver_searcher'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'elixir-lsp/coc-elixir', {'do': 'yarn install && yarn prepack'}
 Plug 'rodrigore/coc-tailwind-intellisense', {'do': 'npm install'}
-" coc-solargraph is for ruby
 let g:coc_global_extensions = [
-  \ 'coc-elixir', 'coc-erlang_ls', 'coc-svelte', 'coc-css', 'coc-tailwindcss',
+  \ 'coc-elixir', 'coc-erlang_ls', 'coc-svelte', 'coc-css',  'coc-tailwindcss',
   \ 'coc-tsserver', 'coc-eslint', 'coc-html', 'coc-prettier', 'coc-snippets',
-  \ 'coc-python', 'coc-clangd', 'coc-rust-analyzer', 'coc-solargraph'
+  \ 'coc-python', 'coc-clangd', 'coc-rust-analyzer'
   \ ]
-"===================================VIM============================================
-" Plug 'ThePrimeagen/vim-be-good'
 "===================================WEB============================================
 Plug 'mattn/emmet-vim'
 Plug 'elzr/vim-json' "Better JSON highlighting
@@ -130,7 +130,7 @@ let g:vimwiki_list = [{'path': '~/vimwiki/',
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
 :autocmd BufRead,BufNewFile *.md setlocal spell "auto markdown spellcheck
 "==================================RUST============================================
-
+Plug 'rust-lang/rust.vim'
 "==================================JAVASCRIPT======================================
 Plug 'pangloss/vim-javascript', {'for': ['javascript', 'javascript.jsx']}
 " Plug 'mxw/vim-jsx', {'for': ['javascript', 'javascript.jsx']}
@@ -155,7 +155,8 @@ Plug 'leafOfTree/vim-svelte-plugin'
 au! BufNewFile,BufRead *.svelte set ft=html
 "==================================ELIXIR==========================================
 Plug 'elixir-lang/vim-elixir', { 'for': ['elixir', 'eelixir'] }
-Plug 'elixir-lsp/vscode-surface'
+"syntax highlighting
+Plug 'msaraiva/vscode-surface'
 Plug 'tpope/vim-endwise',    { 'for': ['elixir'] }
 Plug 'mhinz/vim-mix-format'
 au BufEnter *.leex set filetype=eelixir
@@ -177,12 +178,33 @@ nn <leader>f :Files<CR>
 nmap <silent> <leader>ld <Plug>(coc-diagnostic-info)
 nmap <silent> <leader>ln <Plug>(coc-diagnostic-next)
 nmap <silent> <leader>lp <Plug>(coc-diagnostic-prev)
+
+" Symbol renaming.
+nmap <leader>rn <Plug>(coc-rename)
+
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gt <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
+
+" Mappings for CoCList
+" Show all diagnostics.
+nnoremap <silent><nowait> <leader>a  :<C-u>CocList diagnostics<cr>
+" Manage extensions.
+nnoremap <silent><nowait> <leader>e  :<C-u>CocList extensions<cr>
+" Show commands.
+nnoremap <silent><nowait> <leader>c  :<C-u>CocList commands<cr>
+" Find symbol of current document.
 nnoremap <silent><nowait> <leader>o  :<C-u>CocList outline<cr>
-" Do a full-text search with ag in the current project
+" Search workspace symbols.
+nnoremap <silent><nowait> <leader>s  :<C-u>CocList -I symbols<cr>
+" Do default action for next item.
+nnoremap <silent><nowait> <leader>j  :<C-u>CocNext<CR>
+" Do default action for previous item.
+nnoremap <silent><nowait> <leader>k  :<C-u>CocPrev<CR>
+" Resume latest coc list.
+nnoremap <silent><nowait> <leader>p  :<C-u>CocListResume<CR>
+
 nn <leader>/ :Ag<CR>
 "better split movements
 nn <C-j> <C-W>j
