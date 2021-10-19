@@ -98,6 +98,8 @@ source $ZSH/oh-my-zsh.sh
 # [ -f /Users/bretfunk/.travis/travis.sh ] && source /Users/bretfunk/.travis/travis.sh
 #
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Apple/usr/bin:/Users/bretfunk/.local/share/solana/install/active_release/bin:$PATH:/opt/homebrew/opt/openssl@1.1/bin:$PATH"
+# add to path line by line
+path+="$HOME/.emacs.d/bin"
 
 #nvm
   export NVM_DIR="$HOME/.nvm"

@@ -19,7 +19,7 @@ set shortmess+=c                         "Dont pass messages to ins-completion-m
 
 set t_co=256                             "256 colors
 set termguicolors                        "true color
-" set signcolumn=number                    "make gutter just the numbers, requires nvim 0.5
+set signcolumn=number                    "make gutter just the numbers, requires nvim 0.5
 set expandtab                            "no tabs
 set tabstop=2                            "2 spaces for tab
 set shiftwidth=2                         "2 spaces for tab
@@ -75,10 +75,10 @@ inoremap <silent><expr> <TAB>
   \ pumvisible() ? "\<C-n>" :
   \ Check_back_space() ? "\<TAB>" :
   \ coc#refresh()
-"==================================NEOVIM==========================================
-let g:python3_host_prog  = '/usr/bin/python3'
 "==================================PLUGINS=========================================
 call plug#begin('~/.vim/plugged')
+"==================================NEOVIM==========================================
+let g:python3_host_prog  = '/usr/bin/python3'
 "==================================COSMETIC========================================
 Plug 'rainglow/vim'
 "rainglow recommended settings
@@ -98,37 +98,36 @@ Plug 'tpope/vim-vinegar'
 Plug 'tpope/vim-abolish'
 let g:netrw_bufsettings = 'noma nomod nu nobl nowrap ro' "netrw line numbers
 Plug 'mbbill/undotree'
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
 "==================================NAVIGATION======================================
-Plug 'junegunn/fzf.vim'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-"respect gitignore
-let $FZF_DEFAULT_COMMAND = 'ag -g ""'
-Plug 'ggreer/the_silver_searcher'
+"fuzzy finder
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+" sorting
+Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 "==================================AUTOCOMPLETION==================================
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'elixir-lsp/coc-elixir', {'do': 'yarn install && yarn prepack'}
 Plug 'rodrigore/coc-tailwind-intellisense', {'do': 'npm install'}
-let g:coc_global_extensions = [
-  \ 'coc-elixir', 'coc-erlang_ls', 'coc-svelte', 'coc-css',  'coc-tailwindcss',
-  \ 'coc-tsserver', 'coc-eslint', 'coc-html', 'coc-prettier', 'coc-snippets',
-  \ 'coc-python', 'coc-clangd', 'coc-rust-analyzer'
-  \ ]
 "===================================WEB============================================
 Plug 'mattn/emmet-vim'
 Plug 'elzr/vim-json' "Better JSON highlighting
 "==================================HTML/CSS========================================
 Plug 'turbio/bracey.vim' "vscode liveserver for vim
 "==================================WRITING=========================================
-Plug 'vimwiki/vimwiki'
+" Plug 'vimwiki/vimwiki'
 "vimwiki settings
-set nocompatible
-filetype plugin on
+" set nocompatible
+" filetype plugin on
+" need for vim-elixir syntax also
+filetype plugin indent on
 syntax on
 "vimwiki uses markdown
-let g:vimwiki_list = [{'path': '~/vimwiki/',
-                      \ 'syntax': 'markdown', 'ext': '.md'}]
-Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
-:autocmd BufRead,BufNewFile *.md setlocal spell "auto markdown spellcheck
+" let g:vimwiki_list = [{'path': '~/vimwiki/',
+"                       \ 'syntax': 'markdown', 'ext': '.md'}]
+" Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
+" :autocmd BufRead,BufNewFile *.md setlocal spell "auto markdown spellcheck
 "==================================RUST============================================
 Plug 'rust-lang/rust.vim'
 "==================================JAVASCRIPT======================================
@@ -154,12 +153,11 @@ Plug 'TovarishFin/vim-solidity'
 Plug 'leafOfTree/vim-svelte-plugin'
 au! BufNewFile,BufRead *.svelte set ft=html
 "==================================ELIXIR==========================================
-Plug 'elixir-lang/vim-elixir', { 'for': ['elixir', 'eelixir'] }
-"syntax highlighting
-Plug 'msaraiva/vscode-surface'
+Plug 'elixir-editors/vim-elixir'
 Plug 'tpope/vim-endwise',    { 'for': ['elixir'] }
 Plug 'mhinz/vim-mix-format'
 au BufEnter *.leex set filetype=eelixir
+au BufEnter *.heex set filetype=eelixir
 au BufEnter *.ex set filetype=elixir
 let g:mix_format_on_save = 1
 "==================================PLUG END========================================
@@ -172,15 +170,20 @@ if executable('ag')
   set grepformat=%f:%l:%c:%m,%f:%l:%m
 endif
 "==================================KEYBINDINGS=====================================
-"fzf
-nn <leader>f :Files<CR>
+"telescope
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+
 "coc
 nmap <silent> <leader>ld <Plug>(coc-diagnostic-info)
 nmap <silent> <leader>ln <Plug>(coc-diagnostic-next)
 nmap <silent> <leader>lp <Plug>(coc-diagnostic-prev)
 
-" Symbol renaming.
-nmap <leader>rn <Plug>(coc-rename)
+" Symbol renaming.  First doesn't work for some reason.
+" nmap <leader>rn <Plug>(coc-rename)
+nmap <leader>rn :CocCommand document.renameCurrentWord<cr>
 
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gt <Plug>(coc-type-definition)
@@ -217,7 +220,39 @@ nnoremap <leader>u :UndotreeShow<CR>
 nmap<leader>ml :diffget //2<CR>
 "vim fugitive merge right
 nmap<leader>mr :diffget //3<CR>
-"TODO add rename
 
 "esc removes last highlight
 nnoremap <esc> :noh<return><esc>
+
+"==================================SNIPPETS=====================================
+"" Use <C-l> for trigger snippet expand.
+imap <C-l> <Plug>(coc-snippets-expand)
+
+" Use <C-j> for select text for visual placeholder of snippet.
+vmap <C-j> <Plug>(coc-snippets-select)
+
+" Use <C-n> for jump to next placeholder, <C-j> is default for coc.nvim
+let g:coc_snippet_next = '<c-n>'
+
+" Use <C-p> for jump to previous placeholder, <C-k> is default for coc.nvim
+let g:coc_snippet_prev = '<c-p>'
+
+" Use <leader>x for convert visual selected code to snippet
+xmap <leader>x  <Plug>(coc-convert-snippet)
+
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? coc#_select_confirm() :
+      \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+let g:coc_snippet_next = '<tab>'
+
+"==================================LUA=====================================
+lua <<EOF
+EOF
