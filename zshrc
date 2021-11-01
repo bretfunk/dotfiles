@@ -59,7 +59,7 @@ alias 'tailwind=open -a "Google Chrome" https://tailwindui.com/components'
 alias 'surface=open -a "Google Chrome" http://surface-demo.msaraiva.io/getting_started'
 
 #github page open from terminal
-gh() { git brws --repo "NavitasLease/$1"}
+# gh() { git brws --repo "NavitasLease/$1"}
 
 #ls with color
 alias ls='ls -F -G'

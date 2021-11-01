@@ -13,10 +13,9 @@ let mapleader = ' '                      "leader is space
 set hidden                               "allow jumping back and forth between multiple unsaved buffers
 set nobackup                             "some servers have issues with backup files
 set nowritebackup
-set cmdheight=2                          "give more space for display messages
+" set cmdheight=2                          "give more space for display messages
 set updatetime=250                       "longer leads to delays
 set shortmess+=c                         "Dont pass messages to ins-completion-menu
-
 set t_co=256                             "256 colors
 set termguicolors                        "true color
 set signcolumn=number                    "make gutter just the numbers, requires nvim 0.5
@@ -36,7 +35,7 @@ set smartcase                            "search is case insensitive until you a
 set incsearch                            " Find the next match as we type the search
 set autoread                             "auto loads changed file, like when changing branches
 set shellcmdflag=-ic                     "use bash aliases in command mode
-" set diffopt+=vertical                    "git diff is vertical
+set diffopt+=vertical                    "git diff is vertical
 set noswapfile
 set backupdir=~/.config/nvim/backup
 "==================================FUNCTIONS=======================================
@@ -81,12 +80,14 @@ call plug#begin('~/.vim/plugged')
 let g:python3_host_prog  = '/usr/bin/python3'
 "==================================COSMETIC========================================
 Plug 'rainglow/vim'
+Plug 'mhartington/oceanic-next'
 "rainglow recommended settings
-set linespace=3
-set guifont=Fira\ Code:h12
-set cursorline
+" set linespace=3
+" set guifont=Fira\ Code:h12
+" set cursorline
 Plug 'luochen1990/rainbow'
 Plug 'vim-airline/vim-airline'
+Plug 'Yggdroot/indentLine'
 "==================================UTILITY=========================================
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
@@ -130,6 +131,9 @@ syntax on
 " :autocmd BufRead,BufNewFile *.md setlocal spell "auto markdown spellcheck
 "==================================RUST============================================
 Plug 'rust-lang/rust.vim'
+"==================================HASKELL============================================
+"haskell coc configed in coc file
+Plug 'haskell/haskell-language-server'
 "==================================JAVASCRIPT======================================
 Plug 'pangloss/vim-javascript', {'for': ['javascript', 'javascript.jsx']}
 " Plug 'mxw/vim-jsx', {'for': ['javascript', 'javascript.jsx']}
@@ -160,10 +164,16 @@ au BufEnter *.leex set filetype=eelixir
 au BufEnter *.heex set filetype=eelixir
 au BufEnter *.ex set filetype=elixir
 let g:mix_format_on_save = 1
+"==================================AI OVERLORDS========================================
+Plug 'github/copilot.vim'
 "==================================PLUG END========================================
 call plug#end()
 " colorscheme Boxuk
 set background=dark
+if (has("termguicolors"))
+ set termguicolors
+endif
+colorscheme OceanicNext
 "==================================FAST SEARCH=====================================
 if executable('ag')
   set grepprg=ag\ --nogroup\ --nocolor\ --ignore-case\ --column
@@ -216,10 +226,13 @@ nn <C-h> <C-W>h
 nn <C-l> <C-W>l
 "undo tree
 nnoremap <leader>u :UndotreeShow<CR>
+
 "vim fugitive merge left
 nmap<leader>ml :diffget //2<CR>
 "vim fugitive merge right
 nmap<leader>mr :diffget //3<CR>
+"vim fugitive update buffer
+nmap<leader>mu :diffupdate<CR>
 
 "esc removes last highlight
 nnoremap <esc> :noh<return><esc>

@@ -1,18 +1,18 @@
 {
   "diagnostic.virtualText": true,
-  "diagnostic.messageTarget": "echo",
-  "coc.source.around.priority": 9,
-  "coc.source.buffer.priority": 9,
-  "eslint.options": {"configFile": "./.eslintrc"},
-  "json.format.enable": true,
-  /* need to add prettier file like eslint above */
-  "prettier.requireConfig": true,
-  "list.insertMappings": {
-    "<C-n>": "normal:j",
-    "<C-p>": "normal:k"
-  },
-  "coc.preferences.formatOnSaveFiletypes": [
-    "html",
+    "diagnostic.messageTarget": "echo",
+    "coc.source.around.priority": 9,
+    "coc.source.buffer.priority": 9,
+    "eslint.options": {"configFile": "./.eslintrc"},
+    "json.format.enable": true,
+    /* need to add prettier file like eslint above */
+    "prettier.requireConfig": true,
+    "list.insertMappings": {
+      "<C-n>": "normal:j",
+      "<C-p>": "normal:k"
+    },
+    "coc.preferences.formatOnSaveFiletypes": [
+      "html",
     "leex",
     "eex",
     "ex",
@@ -24,12 +24,17 @@
     "python",
     "json",
     "svelte"
-  ],
-  "eslint.filetypes": ["javascript", "javascriptreact", "typescript",
-  "typescriptreact", "svelte"],
-  "tsserver.formatOnType": false,
-  /* "elixirLS.dialyzerEnabled": false, */
-  "elixir.pathToElixirLS": "~/.elixir-ls/release/language_server.sh"
-  
+    ],
+    "eslint.filetypes": ["javascript", "javascriptreact", "typescript",
+    "typescriptreact", "svelte"],
+    "tsserver.formatOnType": false,
+    "elixir.pathToElixirLS": "~/.elixir-ls/release/language_server.sh",
+    "languageserver": {
+      "haskell": {
+        "command": "haskell-language-server-wrapper",
+        "args": ["--lsp"],
+        "rootPatterns": ["*.cabal", "stack.yaml", "cabal.project", "package.yaml", "hie.yaml"],
+        "filetypes": ["haskell", "lhaskell"]
+      }
+    }
 }
-
