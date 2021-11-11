@@ -30,7 +30,7 @@ alias 'v=nvim'
 alias 'ud=cd ~/dotfiles && sh scripts.sh'
 
 #dotfiles
-alias 'dotfiles=cd ~/dotfiles && ls'
+alias 'dotfiles=cd ~/dotfiles && ls -al'
 alias 'zshrc=nvim ~/dotfiles/zshrc'
 alias 'vimrc=nvim ~/dotfiles/vimrc'
 alias 'bashrc=nvim ~/dotfiles/bashrc'
@@ -65,7 +65,7 @@ alias 'surface=open -a "Google Chrome" http://surface-demo.msaraiva.io/getting_s
 alias ls='ls -F -G'
 
 #path
-alias path='$PATH --pretty'
+# alias path='$PATH --pretty'
 
 #secret
 source ~/dotfiles/secret
@@ -97,9 +97,10 @@ source $ZSH/oh-my-zsh.sh
 # added by travis gem
 # [ -f /Users/bretfunk/.travis/travis.sh ] && source /Users/bretfunk/.travis/travis.sh
 #
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Apple/usr/bin:/Users/bretfunk/.local/share/solana/install/active_release/bin:$PATH:/opt/homebrew/opt/openssl@1.1/bin:$PATH"
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Apple/usr/bin:$PATH:$PATH:/Users/bretfunk/Documents/code/tutorials/solana/solana"
+# export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Apple/usr/bin:/Users/bretfunk/.local/share/solana/install/active_release/bin:$PATH:/opt/homebrew/opt/openssl@1.1/bin:$PATH:/Users/bretfunk/Documents/code/tutorials/solana/solana"/bin:"$PATH"
 # add to path line by line
-path+="$HOME/.emacs.d/bin"
+# path+="$HOME/.emacs.d/bin"
 
 #nvm
   export NVM_DIR="$HOME/.nvm"
