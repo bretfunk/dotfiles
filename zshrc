@@ -97,7 +97,9 @@ source $ZSH/oh-my-zsh.sh
 # added by travis gem
 # [ -f /Users/bretfunk/.travis/travis.sh ] && source /Users/bretfunk/.travis/travis.sh
 #
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Apple/usr/bin:$PATH:$PATH:/Users/bretfunk/Documents/code/tutorials/solana/solana"
+export PATH="/Users/bretfunk/solana"/bin:"$PATH"
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Apple/usr/bin:$PATH"
+# export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Apple/usr/bin:$PATH:$PATH:/Users/bretfunk/Documents/code/tutorials/solana/solana"
 # export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Apple/usr/bin:/Users/bretfunk/.local/share/solana/install/active_release/bin:$PATH:/opt/homebrew/opt/openssl@1.1/bin:$PATH:/Users/bretfunk/Documents/code/tutorials/solana/solana"/bin:"$PATH"
 # add to path line by line
 # path+="$HOME/.emacs.d/bin"

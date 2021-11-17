@@ -111,7 +111,7 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend upda
 " need to have a parser for each language
 "==================================AUTOCOMPLETION==================================
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-" Plug 'elixir-lsp/coc-elixir', {'do': 'yarn install && yarn prepack'}
+Plug 'elixir-lsp/coc-elixir', {'do': 'yarn install && yarn prepack'}
 " Plug 'rodrigore/coc-tailwind-intellisense', {'do': 'npm install'}
 "===================================WEB============================================
 Plug 'mattn/emmet-vim'
@@ -136,6 +136,8 @@ Plug 'rust-lang/rust.vim'
 "==================================HASKELL============================================
 "haskell coc configed in coc file
 Plug 'haskell/haskell-language-server'
+Plug 'neovimhaskell/haskell-vim'
+Plug 'alx741/vim-hindent'
 "==================================JAVASCRIPT======================================
 Plug 'pangloss/vim-javascript', {'for': ['javascript', 'javascript.jsx']}
 " Plug 'mxw/vim-jsx', {'for': ['javascript', 'javascript.jsx']}
@@ -238,6 +240,12 @@ nmap<leader>mu :diffupdate<CR>
 
 "esc removes last highlight
 nnoremap <esc> :noh<return><esc>
+"==================================CUSTOM=====================================
+function! Format()
+  :set ft=html
+  :execute search("<html>") . "mark <" | execute search("</html>") . "mark >" | normal gv=
+  :set ft=elixir
+endfunction
 
 "==================================SNIPPETS=====================================
 "" Use <C-l> for trigger snippet expand.
