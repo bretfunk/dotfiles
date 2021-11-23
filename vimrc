@@ -184,6 +184,12 @@ if executable('ag')
   set grepformat=%f:%l:%c:%m,%f:%l:%m
 endif
 "==================================KEYBINDINGS=====================================
+"reload vimrc
+nmap <leader>vr :source ~/dotfiles/vimrc<cr>
+
+"delete all buffers
+nmap <leader>db :buffdo bdelete<cr>
+
 "telescope
 nnoremap <leader>ff <cmd>Telescope find_files<cr>
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>
@@ -241,6 +247,7 @@ nmap<leader>mu :diffupdate<CR>
 "esc removes last highlight
 nnoremap <esc> :noh<return><esc>
 "==================================CUSTOM=====================================
+"formats html in a non html file
 function! Format()
   :set ft=html
   :execute search("<html>") . "mark <" | execute search("</html>") . "mark >" | normal gv=
