@@ -112,25 +112,14 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend upda
 "==================================AUTOCOMPLETION==================================
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'elixir-lsp/coc-elixir', {'do': 'yarn install && yarn prepack'}
-" Plug 'rodrigore/coc-tailwind-intellisense', {'do': 'npm install'}
 "===================================WEB============================================
 Plug 'mattn/emmet-vim'
 Plug 'elzr/vim-json' "Better JSON highlighting
 "==================================HTML/CSS========================================
 Plug 'turbio/bracey.vim' "vscode liveserver for vim
 "==================================WRITING=========================================
-" Plug 'vimwiki/vimwiki'
-"vimwiki settings
-" set nocompatible
-" filetype plugin on
-" need for vim-elixir syntax also
 filetype plugin indent on
 syntax on
-"vimwiki uses markdown
-" let g:vimwiki_list = [{'path': '~/vimwiki/',
-"                       \ 'syntax': 'markdown', 'ext': '.md'}]
-" Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
-" :autocmd BufRead,BufNewFile *.md setlocal spell "auto markdown spellcheck
 "==================================RUST============================================
 Plug 'rust-lang/rust.vim'
 "==================================HASKELL============================================
@@ -168,8 +157,6 @@ au BufEnter *.leex set filetype=eelixir
 au BufEnter *.heex set filetype=eelixir
 au BufEnter *.ex set filetype=elixir
 let g:mix_format_on_save = 1
-"==================================AI OVERLORDS========================================
-" Plug 'github/copilot.vim'
 "==================================PLUG END========================================
 call plug#end()
 " colorscheme Boxuk
@@ -201,8 +188,6 @@ nmap <silent> <leader>ld <Plug>(coc-diagnostic-info)
 nmap <silent> <leader>ln <Plug>(coc-diagnostic-next)
 nmap <silent> <leader>lp <Plug>(coc-diagnostic-prev)
 
-" Symbol renaming.  First doesn't work for some reason.
-" nmap <leader>rn <Plug>(coc-rename)
 nmap <leader>rn :CocCommand document.renameCurrentWord<cr>
 
 nmap <silent> gd <Plug>(coc-definition)
