@@ -164,7 +164,8 @@ set background=dark
 if (has("termguicolors"))
  set termguicolors
 endif
-colorscheme OceanicNext
+" colorscheme OceanicNext
+colorscheme freshcut
 "==================================FAST SEARCH=====================================
 if executable('ag')
   set grepprg=ag\ --nogroup\ --nocolor\ --ignore-case\ --column
