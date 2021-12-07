@@ -17,6 +17,9 @@ alias 'cdud=cd ~/Documents/code/ucbi/ucbi_dev && ls'
 alias 'cdq=cd ~/Documents/code/Q2 && ls'
 alias 'cdrp=cd ~/Documents/code/tutorials/rust/projects && ls'
 
+#seasonal
+alias 'cda=cd ~/Documents/code/advent_of_code/2021 && ls'
+
 #yarn
 alias 'yul=yarn upgrade lapis && yarn start'
 #this is for the mac m1 to not get not supported version of node-sass errors

@@ -25,7 +25,9 @@ set shiftwidth=2                         "2 spaces for tab
 set softtabstop=2                        "2 spaces for tab
 set list                                 "show tab characters
 set nowrap                               "no softwrap
-set nofoldenable                         "no code folding
+set foldmethod=manual
+" set foldmethod=syntax
+" set nofoldenable                         "no code folding
 set number                               "line numbers
 set relativenumber                       "relative line numbers
 set smartindent                          "smart indent
