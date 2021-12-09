@@ -38,6 +38,9 @@ Thumbs.db
 
 # Text editors
 #############
+*.swp
+*.swo
+# I think below should work just fine for the swap files but to chicken to delete
 [._]*.s[a-w][a-z]
 [._]s[a-w][a-z]
 *.un~

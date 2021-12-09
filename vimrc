@@ -11,7 +11,7 @@
 let mapleader = ' '                      "leader is space
 " coc.nvim config suggestions
 set hidden                               "allow jumping back and forth between multiple unsaved buffers
-set nobackup                             "some servers have issues with backup files
+" set nobackup                             "some servers have issues with backup files
 set nowritebackup
 " set cmdheight=2                          "give more space for display messages
 set updatetime=250                       "longer leads to delays
@@ -38,7 +38,8 @@ set incsearch                            " Find the next match as we type the se
 set autoread                             "auto loads changed file, like when changing branches
 set shellcmdflag=-ic                     "use bash aliases in command mode
 set diffopt+=vertical                    "git diff is vertical
-set noswapfile
+" set noswapfile
+set directory=~/.config/nvim/tmp
 set backupdir=~/.config/nvim/backup
 "==================================FUNCTIONS=======================================
 func! StripTrailingWhitespace()
@@ -120,8 +121,19 @@ Plug 'elzr/vim-json' "Better JSON highlighting
 "==================================HTML/CSS========================================
 Plug 'turbio/bracey.vim' "vscode liveserver for vim
 "==================================WRITING=========================================
+Plug 'vimwiki/vimwiki'
+"vimwiki settings
+set nocompatible
+filetype plugin on
+" need for vim-elixir syntax also
 filetype plugin indent on
 syntax on
+" vimwiki uses markdown
+ let g:vimwiki_list = [{'path': '~/vimwiki/',
+                       \ 'syntax': 'markdown', 'ext': '.md'}]
+ Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
+ :autocmd BufRead,BufNewFile *.md setlocal spell "auto markdown spellcheck
+"==================================RUST============================================
 "==================================RUST============================================
 Plug 'rust-lang/rust.vim'
 "==================================HASKELL============================================
