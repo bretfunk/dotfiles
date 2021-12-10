@@ -84,10 +84,10 @@ let g:python3_host_prog  = '/usr/bin/python3'
 "==================================COSMETIC========================================
 Plug 'rainglow/vim'
 Plug 'mhartington/oceanic-next'
-"rainglow recommended settings
-" set linespace=3
-" set guifont=Fira\ Code:h12
-" set cursorline
+rainglow recommended settings
+ set linespace=3
+ set guifont=Fira\ Code:h12
+ set cursorline
 Plug 'luochen1990/rainbow'
 Plug 'vim-airline/vim-airline'
 Plug 'Yggdroot/indentLine'
