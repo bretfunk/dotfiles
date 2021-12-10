@@ -84,7 +84,7 @@ let g:python3_host_prog  = '/usr/bin/python3'
 "==================================COSMETIC========================================
 Plug 'rainglow/vim'
 Plug 'mhartington/oceanic-next'
-rainglow recommended settings
+" rainglow recommended settings
  set linespace=3
  set guifont=Fira\ Code:h12
  set cursorline
