@@ -19,6 +19,7 @@ alias 'cdrp=cd ~/Documents/code/tutorials/rust/projects && ls -alp'
 
 #seasonal
 alias 'cda=cd ~/Documents/code/advent_of_code/2021 && ls -alp'
+alias 'gftg=cd ~/notes/programming/DataStructuresAlgos/Andrei && ls -alp'
 
 #yarn
 alias 'yul=yarn upgrade lapis && yarn start'

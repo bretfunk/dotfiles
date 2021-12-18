@@ -38,8 +38,8 @@ set incsearch                            " Find the next match as we type the se
 set autoread                             "auto loads changed file, like when changing branches
 set shellcmdflag=-ic                     "use bash aliases in command mode
 set diffopt+=vertical                    "git diff is vertical
-" set noswapfile
-set directory=~/.config/nvim/tmp
+set noswapfile
+" set directory=~/.config/nvim/tmp
 set backupdir=~/.config/nvim/backup
 "==================================FUNCTIONS=======================================
 func! StripTrailingWhitespace()
