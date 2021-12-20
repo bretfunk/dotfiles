@@ -82,15 +82,17 @@ call plug#begin('~/.vim/plugged')
 "==================================NEOVIM==========================================
 let g:python3_host_prog  = '/usr/bin/python3'
 "==================================COSMETIC========================================
-Plug 'rainglow/vim'
-Plug 'mhartington/oceanic-next'
+" Plug 'rainglow/vim'
+" Plug 'mhartington/oceanic-next'
 " rainglow recommended settings
- set linespace=3
- set guifont=Fira\ Code:h12
- set cursorline
+ " set linespace=3
+ " set guifont=Fira\ Code:h12
+ " set cursorline
 Plug 'luochen1990/rainbow'
+let g:rainbow_active = 1 "set to 0 if you want to enable it later via :RainbowToggle
 Plug 'vim-airline/vim-airline'
 Plug 'Yggdroot/indentLine'
+" Plug 'gruvbox-community/gruvbox'
 "==================================UTILITY=========================================
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
@@ -110,7 +112,7 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 " sorting
 Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
+" Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
 " need to have a parser for each language
 "==================================AUTOCOMPLETION==================================
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -179,7 +181,7 @@ if (has("termguicolors"))
  set termguicolors
 endif
 " colorscheme OceanicNext
-colorscheme freshcut
+" colorscheme freshcut
 "==================================FAST SEARCH=====================================
 if executable('ag')
   set grepprg=ag\ --nogroup\ --nocolor\ --ignore-case\ --column
