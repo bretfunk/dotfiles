@@ -117,8 +117,8 @@ export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Apple/usr/bin
 source $HOME/.cargo/env
 
 #node version manager
-# source ~/.nvm/nvm.sh
-# npm config delete prefix
+source ~/.nvm/nvm.sh
+npm config delete prefix
 
 #******homebrew installs below*****
 eval $(/opt/homebrew/bin/brew shellenv)
