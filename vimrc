@@ -27,7 +27,7 @@ set list                                 "show tab characters
 set nowrap                               "no softwrap
 set foldmethod=manual
 " set foldmethod=syntax
-" set nofoldenable                         "no code folding
+set nofoldenable                         "no code folding
 set number                               "line numbers
 set relativenumber                       "relative line numbers
 set smartindent                          "smart indent
