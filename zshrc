@@ -127,7 +127,7 @@ eval $(/opt/homebrew/bin/brew shellenv)
 eval "$(starship init zsh)"
 
 #python
-eval "$(pyenv init --path)"
+# eval "$(pyenv init --path)"
 
 #homebew 
 export PATH="/opt/homebrew/bin:$PATH"

@@ -90,7 +90,10 @@ Plug 'mhartington/oceanic-next'
  " set cursorline
 Plug 'luochen1990/rainbow'
 let g:rainbow_active = 1 "set to 0 if you want to enable it later via :RainbowToggle
+" airline theme
+let g:airline_theme='simple'
 Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'Yggdroot/indentLine'
 " Plug 'gruvbox-community/gruvbox'
 "==================================UTILITY=========================================
