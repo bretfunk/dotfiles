@@ -135,3 +135,4 @@ export PATH="/opt/homebrew/bin:$PATH"
 #the fuck
 eval $(thefuck --alias fuck)
 [ -f "/Users/bretfunk/.ghcup/env" ] && source "/Users/bretfunk/.ghcup/env" # ghcup-env
+

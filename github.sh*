@@ -1,0 +1,3 @@
+#!bin/bash
+
+echo "Checking parameters: $1 $2"
