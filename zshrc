@@ -32,6 +32,7 @@ alias 'v=nvim'
 
 #scripts
 alias 'ud=cd ~/dotfiles && sh scripts.sh'
+alias 'water=cd ~/notes && sh github.sh'
 
 #dotfiles
 alias 'dotfiles=cd ~/dotfiles && ls -alp'
