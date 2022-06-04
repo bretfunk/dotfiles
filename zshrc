@@ -19,7 +19,7 @@ alias 'cdrp=cd ~/Documents/code/tutorials/rust/projects && ls -alp'
 
 #seasonal
 alias 'cda=cd ~/Documents/code/advent_of_code/2021 && ls -alp'
-alias 'gftg=cd ~/notes/programming/DataStructuresAlgos/Andrei && ls -alp'
+alias 'gftg=cd ~/Documents/code/gftg && ls -alp'
 
 #yarn
 alias 'yul=yarn upgrade lapis && yarn start'
@@ -28,6 +28,8 @@ alias 'yul=yarn upgrade lapis && yarn start'
 
 #vim
 alias 'v=nvim'
+#lunar vim
+alias 'lv=/Users/bretfunk/.local/bin/lvim'
 # alias 'v=vim'
 
 #scripts
@@ -99,27 +101,20 @@ zsh-autosuggestions
 )
 source $ZSH/oh-my-zsh.sh
 
-# added by travis gem
-# [ -f /Users/bretfunk/.travis/travis.sh ] && source /Users/bretfunk/.travis/travis.sh
-#
-export PATH="/Users/bretfunk/solana"/bin:"$PATH"
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Apple/usr/bin:$PATH"
-# export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Apple/usr/bin:$PATH:$PATH:/Users/bretfunk/Documents/code/tutorials/solana/solana"
-# export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Apple/usr/bin:/Users/bretfunk/.local/share/solana/install/active_release/bin:$PATH:/opt/homebrew/opt/openssl@1.1/bin:$PATH:/Users/bretfunk/Documents/code/tutorials/solana/solana"/bin:"$PATH"
-# add to path line by line
-# path+="$HOME/.emacs.d/bin"
+# export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Apple/usr/bin:$PATH"
 
 #nvm
-  export NVM_DIR="$HOME/.nvm"
-  [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && . "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
-  [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && . "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+export NVM_DIR="$HOME/.nvm"
+[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && . "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && . "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
 #rust programming language
 source $HOME/.cargo/env
 
 #node version manager
-source ~/.nvm/nvm.sh
-npm config delete prefix
+# source ~/.nvm/nvm.sh
+# npm config delete prefix
+# nvm use --delete-prefix v14.17.0 --silent
 
 #******homebrew installs below*****
 eval $(/opt/homebrew/bin/brew shellenv)
@@ -131,9 +126,18 @@ eval "$(starship init zsh)"
 # eval "$(pyenv init --path)"
 
 #homebew 
-export PATH="/opt/homebrew/bin:$PATH"
+# export PATH="/opt/homebrew/bin:$PATH"
 
 #the fuck
 eval $(thefuck --alias fuck)
 [ -f "/Users/bretfunk/.ghcup/env" ] && source "/Users/bretfunk/.ghcup/env" # ghcup-env
 
+# homebrew on m1
+export PATH=/opt/homebrew/bin:$PATH
+
+#pynev
+# when you had all of those nvim python issues you just needed to install pyenv
+# and add the lines below and it fixed it
+export PYENV_ROOT="$HOME/.pyenv"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
