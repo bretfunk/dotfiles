@@ -109,3 +109,8 @@ tags*
 
 # until Colby fixes navitex
 *priv/static
+
+instructions.md
+current_issue.md
+
+.cursor
