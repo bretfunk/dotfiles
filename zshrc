@@ -18,5 +18,6 @@ alias 'lg=lazygit'
 export EDITOR='nvim'
 
 # PATH setup (minimal)
+export PATH="/opt/homebrew/bin:$PATH"  # Homebrew (nvim, etc.)
 export PATH="$HOME/.local/bin:$PATH"  # Expert LSP and other local tools
 export PATH="$HOME/.asdf/shims:$PATH"  # ASDF version manager
