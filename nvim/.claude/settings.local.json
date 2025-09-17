@@ -27,7 +27,10 @@
       "Bash(system_profiler:*)",
       "Bash(echo $PATH)",
       "Bash(source:*)",
-      "Bash(cdu)"
+      "Bash(cdu)",
+      "Bash(git push:*)",
+      "Bash(brew list:*)",
+      "Bash(brew:*)"
     ],
     "deny": [],
     "ask": []
