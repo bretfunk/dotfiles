@@ -30,7 +30,10 @@
       "Bash(cdu)",
       "Bash(git push:*)",
       "Bash(brew list:*)",
-      "Bash(brew:*)"
+      "Bash(brew:*)",
+      "Read(//usr/local/**)",
+      "Read(//opt/**)",
+      "Bash(sudo rm:*)"
     ],
     "deny": [],
     "ask": []
