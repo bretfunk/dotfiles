@@ -21,7 +21,11 @@
       "Bash(curl:*)",
       "Bash(mix format:*)",
       "Bash(echo $EDITOR)",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(defaults read:*)",
+      "Bash(system_profiler:*)",
+      "Bash(echo $PATH)"
     ],
     "deny": [],
     "ask": []
