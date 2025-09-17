@@ -1,4 +1,6 @@
 # Starship prompt configuration
+command_timeout = 2000
+
 format = """
 $directory\
 $git_branch\

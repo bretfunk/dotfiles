@@ -9,8 +9,9 @@
 # =============================================================================
 
 # Essential aliases
-alias 'cdu=cd ~/Documents/code/ucbi/ucbi_dev'
-alias 'cds=cd ~/Documents/code/projects/service_amplify'
+alias 'cdu=cd ~/Documents/code/ucbi/ucbi_dev && ls -la'
+alias 'cds=cd ~/Documents/code/projects/service_amplify && ls -la'
+alias 'dotfiles=cd ~/dotfiles && ls -la'
 alias 'v=nvim'
 alias 'lg=lazygit'
 
