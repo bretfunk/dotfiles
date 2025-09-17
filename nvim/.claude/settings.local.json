@@ -25,7 +25,9 @@
       "Bash(git commit:*)",
       "Bash(defaults read:*)",
       "Bash(system_profiler:*)",
-      "Bash(echo $PATH)"
+      "Bash(echo $PATH)",
+      "Bash(source:*)",
+      "Bash(cdu)"
     ],
     "deny": [],
     "ask": []
