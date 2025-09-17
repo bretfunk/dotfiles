@@ -1,0 +1,38 @@
+# Starship prompt configuration
+format = """
+$directory\
+$git_branch\
+$git_status\
+$elixir\
+$nodejs\
+$python\
+$character"""
+
+[directory]
+style = "blue bold"
+truncation_length = 3
+truncate_to_repo = false
+
+[git_branch]
+symbol = "🌱 "
+style = "bright-green bold"
+
+[git_status]
+format = '([\[$all_status$ahead_behind\]]($style) )'
+style = "cyan"
+
+[elixir]
+symbol = "💧 "
+style = "magenta bold"
+
+[nodejs]
+symbol = "⬢ "
+style = "green bold"
+
+[python]
+symbol = "🐍 "
+style = "yellow bold"
+
+[character]
+success_symbol = "[❯](purple)"
+error_symbol = "[❯](red)"

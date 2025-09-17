@@ -21,3 +21,6 @@ export EDITOR='nvim'
 export PATH="/opt/homebrew/bin:$PATH"  # Homebrew (nvim, etc.)
 export PATH="$HOME/.local/bin:$PATH"  # Expert LSP and other local tools
 export PATH="$HOME/.asdf/shims:$PATH"  # ASDF version manager
+
+# Prompt
+eval "$(starship init zsh)"
